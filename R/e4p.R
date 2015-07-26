@@ -30,7 +30,7 @@
 
 e4p <- function(N, n, P, DEFF = 1, conf = 0.95, plot = FALSE) {
   
-  S2 <- P * (1 - P) * DEFF
+  S2 <- P * (1 - P)
   Z <- 1 - ((1 - conf)/2)
   f <- n/N
   VAR <- DEFF * (1/n) * (1 - f) * S2
