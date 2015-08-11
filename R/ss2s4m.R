@@ -99,19 +99,19 @@
 
 ss2s4m <- function(N, mu, sigma, conf=0.95, rme=0.03, M, by, rho){
 
-  mseq <- seq(1,M, by=by)
-  NIseq <- rep(NA, times=length(mseq))
+  mseq <- seq(1, round(N/M), by=by)
+  nIseq <- rep(NA, times=length(mseq))
   Deffseq <- rep(NA, times=length(mseq))
   n2seq <- rep(NA, times=length(mseq))
   
   for(i in 1: length(mseq)){
     Deffseq[i] = 1 + (mseq[i] - 1) * rho
     n2seq[i] = ss4m(N, mu=mu, sigma=sigma, DEFF=Deffseq[i], conf=conf, rme=rme)$n.rme
-    NIseq[i] <- ceiling(n2seq[i]/mseq[i])
+    nIseq[i] <- ceiling(n2seq[i]/mseq[i])
   }
 
-  result <- data.frame("Deff"=Deffseq, "NI"=NIseq, "m"=mseq, "n2s"=n2seq)
-  result.adj <- result[(result$NI <= N/M),]
+  result <- data.frame("Deff"=Deffseq, "nI"=nIseq, "m"=mseq, "n2s"=n2seq)
+  result.adj <- result[(result$nI <= M),]
   result.adj
 }
 
