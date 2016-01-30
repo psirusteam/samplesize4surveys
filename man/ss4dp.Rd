@@ -25,14 +25,13 @@ ss4dp(N, P1, P2, DEFF = 1, conf = 0.95, cve = 0.05, me = 0.03,
 \item{plot}{Optionally plot the errors (cve and margin of error) against the sample size.}
 }
 \description{
-This function returns the minimum sample size required for estimating a single proportion subjecto to predefined errors.
+This function returns the minimum sample size required for estimating a difference of two proportions subject to predefined errors.
 }
 \details{
 Note that the minimun sample size to achieve a particular margin of error \eqn{\varepsilon} is defined by:
 \deqn{n = \frac{n_0}{1+\frac{n_0}{N}}}
 Where \deqn{n_0=\frac{z^2_{1-\frac{\alpha}{2}}S^2}{\varepsilon}}
-and
-\deqn{S^2=p(1-p)DEFF}
+and \eqn{S^2=(P_1Q_1+P_2Q_2)DEFF} and \eqn{Q_i=1-P_i} for \eqn{i=1,2}.
 Also note that the minimun sample size to achieve a particular coefficient of variation \eqn{cve} is defined by:
 \deqn{n = \frac{S^2}{p^2cve^2+\frac{S^2}{N}}}
 }

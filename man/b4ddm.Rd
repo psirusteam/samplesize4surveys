@@ -48,7 +48,7 @@ This function computes the power for a (right tail) test of double difference of
 }
 \details{
 We note that the power is defined as: \deqn{1-\Phi(Z_{1-\alpha} - \frac{(D - [(\mu_1 - \mu_2) - (\mu_3 - \mu_4)])}{\sqrt{\frac{1}{n}(1-\frac{n}{N})S^2}})}
-where \deqn{S^2 = DEFF (\sigma_1^2 + \sigma_2^2 + \sigma_3^2 + \sigma_4^2}
+where \deqn{S^2 = DEFF (\sigma_1^2 + \sigma_2^2 + \sigma_3^2 + \sigma_4^2)}
 }
 \examples{
 b4ddm(N = 100000, n = 400, mu1=50, mu2=55, mu3=50, mu4=55,
