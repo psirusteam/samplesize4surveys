@@ -8,6 +8,10 @@ Maintainer: Hugo Andres Gutierrez Rojas <hugogutierrez@usantotomas.edu.co>
 Description: Computes the required sample size for estimation of totals, means
     and proportions under complex sampling designs.
 License: GPL (>= 2)
-Depends: R (>= 2.11), TeachingSampling
-Suggests: knitr
+Depends:
+    R (>= 2.11),
+    TeachingSampling
+Suggests:
+    knitr
 VignetteBuilder: knitr
+RoxygenNote: 5.0.1

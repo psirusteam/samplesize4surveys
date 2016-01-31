@@ -1,6 +1,6 @@
 ---
 title: "Power of a Test and Sample Size in Complex Surveys"
-author: Hugo Andrés Gutiérrez Rojas
+author: Andrés Gutiérrez
 date: 2015
 output: rmarkdown::html_vignette
 vignette: >
