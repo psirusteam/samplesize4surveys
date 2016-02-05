@@ -4,10 +4,13 @@
 \alias{ss4S2}
 \title{The required sample size for estimating a single variance}
 \usage{
-ss4S2(N, DEFF = 1, conf = 0.95, cve = 0.05, rme = 0.03, plot = FALSE)
+ss4S2(N, K = 0, DEFF = 1, conf = 0.95, cve = 0.05, me = 0.03,
+  plot = FALSE)
 }
 \arguments{
 \item{N}{The population size.}
+
+\item{K}{The population excess kurtosis of the variable in the population.}
 
 \item{DEFF}{The design effect of the sample design. By default \code{DEFF = 1}, which corresponds to a simple random sampling design.}
 
@@ -15,46 +18,46 @@ ss4S2(N, DEFF = 1, conf = 0.95, cve = 0.05, rme = 0.03, plot = FALSE)
 
 \item{cve}{The maximun coeficient of variation that can be allowed for the estimation.}
 
-\item{rme}{The maximun relative margin of error that can be allowed for the estimation.}
+\item{me}{The maximun margin of error that can be allowed for the estimation.}
 
 \item{plot}{Optionally plot the errors (cve and margin of error) against the sample size.}
 }
 \description{
-This function returns the minimum sample size required for estimating variance in a finite population subjecto to predefined errors.
+This function returns the minimum sample size required for estimating a single variance subjecto to predefined errors.
 }
 \details{
 Note that the minimun sample size to achieve a particular relative margin of error \eqn{\varepsilon} is defined by: 
-\deqn{n = \frac{n_0}{\frac{(N-3)(N-2)}{N(2N-7)}+\frac{n_0}{N}}}
-Where \deqn{n_0=\frac{z^2_{1-\frac{\alpha}{2}}DEFF}{\varepsilon^2}}
+\deqn{n = \frac{n_0}{\frac{(N-1)^3}{N^2(N*K+2N+2)}+\frac{n_0}{N}}}
+Where \deqn{n_0=\frac{z^2_{1-\frac{\alpha}{2}}*DEFF}{\varepsilon^2}}
 Also note that the minimun sample size to achieve a particular coefficient of variation \eqn{cve} is defined by:
-\deqn{n = \frac{S^2}{p^2cve^2+\frac{S^2}{N}}}
+\deqn{n = \frac{N^2(N*K+2N+2)*DEFF}{cve^2*(N-1)^3+N(N*K+2N+2)*DEFF}}
 }
 \examples{
-ss4S2(N=100000, DEFF=1, conf=0.95, cve=0.05, rme=0.03)
-ss4S2(N=100000, DEFF=1, conf=0.95, cve=0.05, rme=0.03, plot=TRUE)
-ss4S2(N=100000, DEFF=1, conf=0.95, cve=0.05, rme=0.05, plot=TRUE)
+ss4S2(N = 10000, K = 0, cve = 0.05, me = 0.03)
+ss4S2(N = 10000, K = 1, cve = 0.05, me = 0.03)
+ss4S2(N = 10000, K = 1, cve = 0.05, me = 0.05, DEFF = 2)
+ss4S2(N = 10000, K = 1, cve = 0.05, me = 0.03, plot = TRUE)
 
-##########################
-# Example with Lucy data #
-##########################
+#############################
+# Example with BigLucy data #
+#############################
 
-data(Lucy)
-attach(Lucy)
-N <- nrow(Lucy)
-# The population variance of the variable Income
-S2 <- var(Lucy$Income)
+data(BigLucy)
+attach(BigLucy)
+N <- nrow(BigLucy)
+K <- kurtosis(BigLucy$Income)
 # The minimum sample size for simple random sampling
-ss4p(N, p, DEFF=1, conf=0.99, cve=0.03, me=0.03, plot=TRUE)
+ss4S2(N, K, DEFF=1, conf=0.99, cve=0.03, me=0.1, plot=TRUE)
 # The minimum sample size for a complex sampling design
-ss4p(N, p, DEFF=3.45, conf=0.99, cve=0.03, me=0.03, plot=TRUE)
+ss4S2(N, K, DEFF=3.45, conf=0.99, cve=0.03, me=0.1, plot=TRUE)
 }
 \author{
-Hugo Andres Gutierrez Rojas <hugogutierrez at usantotomas.edu.co> and Hanwen Zhang <hanwenzhang at usantotomas.edu.co>
+Hugo Andres Gutierrez Rojas <hugogutierrez at usantotomas.edu.co>
 }
 \references{
 Gutierrez, H. A. (2009), \emph{Estrategias de muestreo: Diseno de encuestas y estimacion de parametros}. Editorial Universidad Santo Tomas
 }
 \seealso{
-\code{\link{ss4S2H}}
+\code{\link{e4p}}
 }
 

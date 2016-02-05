@@ -21,7 +21,7 @@ b4m(N, n, mu, sigma, D, DEFF = 1, conf = 0.95, plot = FALSE)
 
 \item{conf}{The statistical confidence. By default \code{conf = 0.95}.}
 
-\item{plot}{Optionally plot the errors (cve and margin of error) against the sample size.}
+\item{plot}{Optionally plot the power achieved for an specific sample size.}
 }
 \value{
 The power of the test.

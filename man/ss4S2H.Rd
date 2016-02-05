@@ -2,16 +2,19 @@
 % Please edit documentation in R/ss4S2H.R
 \name{ss4S2H}
 \alias{ss4S2H}
-\title{The required sample size for testing a null hyphotesis regarding a single variance}
+\title{The required sample size for testing a null hyphotesis for a single variance}
 \usage{
-ss4S2H(N, S2, S20, DEFF = 1, conf = 0.95, power = 0.8, plot = FALSE)
+ss4S2H(N, S2, S20, K = 0, DEFF = 1, conf = 0.95, power = 0.8,
+  plot = FALSE)
 }
 \arguments{
-\item{N}{The maximun population size between the groups (strata) that we want to compare.}
+\item{N}{The population size.}
 
-\item{S2}{The value of the estimated variance.}
+\item{S2}{The value of the estimated variance}
 
-\item{S20}{The value to test for the variance.}
+\item{S20}{The value to test for the single variance}
+
+\item{K}{The excess kurtosis of the variable in the population.}
 
 \item{DEFF}{The design effect of the sample design. By default \code{DEFF = 1}, which corresponds to a simple random sampling design.}
 
@@ -26,43 +29,38 @@ This function returns the minimum sample size required for testing a null hyphot
 }
 \details{
 We assume that it is of interest to test the following set of hyphotesis:
-\deqn{H_0: S^2_U - S^2_0 = 0 \ \ \ \ vs. \ \ \ \ H_a: S^2_U - S^2_0 = D > \neq 0 }
+\deqn{H_0: P - P_0 = 0 \ \ \ \ vs. \ \ \ \ H_a: P - P_0 = D > 0 }
 Note that the minimun sample size, restricted to the predefined power \eqn{\beta} and confidence \eqn{1-\alpha}, is defined by: 
-\deqn{n = \frac{S^4_U*DEFF}{\frac{D^2}{(z_{1-\alpha} + z_{\beta})^2}\frac{(N-3)(N-2)}{N(2N-7)}+\frac{S^4_U*DEFF}{N}}}
+\deqn{n = \frac{S2^2}{\frac{D^2}{(z_{1-\alpha} + z_{\beta})^2}\frac{(N-1)^3}{N^2(N*K+2N+2)}+\frac{S2^2}{N}}}
 }
 \examples{
-ss4S2H(N = 100000, S2 = 100, S20 = 110)
-ss4S2H(N = 100000, S2 = 100, S20 = 110, plot=TRUE)
+
+ss4S2H(N = 10000, S2 = 120, S20 = 110, K = 0)
+ss4S2H(N = 10000, S2 = 120, S20 = 110, K = 2, DEFF = 2, power = 0.9)
+ss4S2H(N = 10000, S2 = 120, S20 = 110, K = 2, DEFF = 2, power = 0.8, plot = TRUE)
 
 #############################
 # Example with BigLucy data #
 #############################
 data(BigLucy)
 attach(BigLucy)
-
-N1 <- table(SPAM)[1]
-N2 <- table(SPAM)[2]
-N <- max(N1,N2)
-P1 <- prop.table(table(SPAM))[1]
-P2 <- prop.table(table(SPAM))[2]
+N <- nrow(BigLucy)
+S2 <- var(BigLucy$Income)
 
 # The minimum sample size for testing 
-# H_0: P_1 - P_2 = 0   vs.   H_a: P_1 - P_2 = D = 0.05
-D = 0.05  
-ss4dpH(N, P1, P2, D, DEFF = 2, plot=TRUE)
-
-# The minimum sample size for testing 
-# H_0: P - P_0 = 0   vs.   H_a: P - P_0 = D = 0.02
-D = 0.01
-ss4dpH(N, P1, P2, D, conf = 0.99, power = 0.9, DEFF = 3.45, plot=TRUE)
+# H_0: S2 - S2_0 = 0   vs.   H_a: S2 - S2_0 = D = 8000
+D = 8000 
+S20 = S2 - D 
+K <- kurtosis(BigLucy$Income)
+ss4S2H(N, S2, S20, K, DEFF=1, conf = 0.99, power = 0.8, plot=TRUE)
 }
 \author{
-Hugo Andres Gutierrez Rojas <hugogutierrez at usantotomas.edu.co> and Hanwen Zhang <hanwenzhang at usantotomas.edu.co>
+Hugo Andres Gutierrez Rojas <hugogutierrez at usantotomas.edu.co>
 }
 \references{
 Gutierrez, H. A. (2009), \emph{Estrategias de muestreo: Diseno de encuestas y estimacion de parametros}. Editorial Universidad Santo Tomas
 }
 \seealso{
-\code{\link{ss4pH}}
+\code{\link{e4p}}
 }
 

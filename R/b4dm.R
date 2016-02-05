@@ -20,7 +20,7 @@
 #' @param D The value of the null effect.
 #' @param DEFF The design effect of the sample design. By default \code{DEFF = 1}, which corresponds to a simple random sampling design.
 #' @param conf The statistical confidence. By default \code{conf = 0.95}.
-#' @param plot Optionally plot the errors (cve and margin of error) against the sample size.
+#' @param plot Optionally plot the power achieved for an specific sample size.
 #' 
 #' @references 
 #' Gutierrez, H. A. (2009), \emph{Estrategias de muestreo: Diseno de encuestas y estimacion de parametros}. Editorial Universidad Santo Tomas

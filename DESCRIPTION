@@ -10,7 +10,8 @@ Description: Computes the required sample size for estimation of totals, means
 License: GPL (>= 2)
 Depends:
     R (>= 2.11),
-    TeachingSampling
+    TeachingSampling,
+    timeDate
 Suggests:
     knitr
 VignetteBuilder: knitr

@@ -38,7 +38,7 @@ b4ddm(N, n, mu1, mu2, mu3, mu4, sigma1, sigma2, sigma3, sigma4, D, DEFF = 1,
 
 \item{R}{The correlation between waves. By default \code{R = 1}.}
 
-\item{plot}{Optionally plot the errors (cve and margin of error) against the sample size.}
+\item{plot}{Optionally plot the power achieved for an specific sample size.}
 }
 \value{
 The power of the test.
