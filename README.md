@@ -1,7 +1,7 @@
 # samplesize4surveys
 ### An R package to compute proper sample sizes under complex sampling designs
 
-This is the version control site for the `samplesize4surveys` package. This software allows you to compute the required sample size for estimation of totals, means, proportions and regression coefficients under complex sampling designs. It focuses on complex surveys in social research e.g. surveys for impact evaluation of public policies or surveys to account causal inferences.
+This is the version control site for the `samplesize4surveys` package. This software allows you to compute the required sample size for estimation of totals, means, proportions and regression coefficients under complex sampling designs. It focuses on complex surveys in social research e.g. labor force surveys, surveys for impact evaluation of public policies or surveys to account causal inferences.
 
 ## Installation
 
