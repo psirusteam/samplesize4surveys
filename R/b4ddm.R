@@ -1,4 +1,6 @@
 #' @import TeachingSampling
+#' @import stats
+#' @import graphics
 #' @export
 #' 
 #' @title
