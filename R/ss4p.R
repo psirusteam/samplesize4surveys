@@ -8,7 +8,7 @@
 #' @details
 #' Note that the minimun sample size to achieve a particular margin of error \eqn{\varepsilon} is defined by: 
 #' \deqn{n = \frac{n_0}{1+\frac{n_0}{N}}}
-#' Where \deqn{n_0=\frac{z^2_{1-\frac{\alpha}{2}}S^2}{\varepsilon}}
+#' Where \deqn{n_0=\frac{z^2_{1-\frac{\alpha}{2}}S^2}{\varepsilon^2}}
 #' and
 #' \deqn{S^2=P(1-P)DEFF}
 #' Also note that the minimun sample size to achieve a particular coefficient of variation \eqn{cve} is defined by:
@@ -80,8 +80,8 @@ ss4p = function(N, P, DEFF=1, conf=0.95, cve=0.05, me=0.03, plot=FALSE){
   
   msg <- cat('With the parameters of this function: N =', N, 'P =', P, 'DEFF = ',
              DEFF, 'conf =', conf, '.\n
-             The estimated sample size to obatin a maximun coefficient of variation of', 100*cve, '% is n=', ceiling(n.cve), '.
-             The estimated sample size to obatin a maximun margin of error of', 100*me, '% is n=', ceiling(n.me), '. \n \n')
+             The estimated sample size to obtain a maximun coefficient of variation of', 100*cve, '% is n=', ceiling(n.cve), '.
+             The estimated sample size to obtain a maximun margin of error of', 100*me, '% is n=', ceiling(n.me), '. \n \n')
   
   result <- list(n.cve = ceiling(n.cve), n.me = ceiling(n.me))
   result 

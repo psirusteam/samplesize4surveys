@@ -8,7 +8,7 @@
 #' @details
 #' Note that the minimun sample size (for each group at each wave) to achieve a particular margin of error \eqn{\varepsilon} is defined by: 
 #' \deqn{n = \frac{n_0}{1+\frac{n_0}{N}}}
-#' Where \deqn{n_0=\frac{z^2_{1-\frac{\alpha}{2}}S^2}{\varepsilon}}
+#' Where \deqn{n_0=\frac{z^2_{1-\frac{\alpha}{2}}S^2}{\varepsilon^2}}
 #' and
 #' \deqn{S^2 = (P1 * Q1 + P2 * Q2 + P3 * Q3 + P4 * Q4) * (1 - (T * R)) * DEFF}
 #' Also note that the minimun sample size to achieve a particular coefficient of variation \eqn{cve} is defined by:
@@ -98,8 +98,8 @@ ss4ddp<-function(N, P1, P2, P3 ,P4, DEFF = 1, conf = 0.95, cve = 0.05, me = 0.03
   }
   msg <- cat("With the parameters of this function: N =", N, 
              "P1 =", P1, "P2 =", P2,"P3 =",P3,"P4 =",P4, "DEFF = ", DEFF, "conf =", conf,"T =",T,"R =",R, 
-             ".\n\n The estimated sample size (for each group at each wave) to obatin a maximun coefficient of variation of", 
-             100 * cve, "% is n=", ceiling(n.cve), ".\n The estimated sample size (for each group at each wave) to obatin a maximun margin of error of", 
+             ".\n\n The estimated sample size (for each group at each wave) to obtain a maximun coefficient of variation of", 
+             100 * cve, "% is n=", ceiling(n.cve), ".\n The estimated sample size (for each group at each wave) to obtain a maximun margin of error of", 
              100 * me, "% is n=", ceiling(n.me), ". \n \n")
   result <- list(n.cve = ceiling(n.cve), n.me = ceiling(n.me))
   result

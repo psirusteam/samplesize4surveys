@@ -1,8 +1,8 @@
 Package: samplesize4surveys
 Type: Package
 Title: Sample Size Calculations for Complex Surveys
-Version: 3.1.2.400
-Date: 2015-05-01
+Version: 3.1.2.500
+Date: 2016-10-06
 Author: Hugo Andres Gutierrez Rojas
 Maintainer: Hugo Andres Gutierrez Rojas <hugogutierrez@usantotomas.edu.co>
 Description: Computes the required sample size for estimation of totals, means

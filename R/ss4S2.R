@@ -75,8 +75,8 @@ ss4S2 <- function(N, K=0, DEFF=1, conf=0.95, cve=0.05, me=0.03, plot=FALSE){
   }
   msg <- cat('With the parameters of this function: N =', N, 'DEFF = ',
              DEFF, 'conf =', conf, '.\n
-             The estimated sample size to obatin a maximun coefficient of variation of', 100*cve, '% is n=', ceiling(n.cve), '.
-             The estimated sample size to obatin a maximun relative margin of error of', 100*me, '% is n=', ceiling(n.me), '. \n \n')
+             The estimated sample size to obtain a maximun coefficient of variation of', 100*cve, '% is n=', ceiling(n.cve), '.
+             The estimated sample size to obtain a maximun relative margin of error of', 100*me, '% is n=', ceiling(n.me), '. \n \n')
   
   result <- list(n.cve = ceiling(n.cve), n.me = ceiling(n.me))
   result 

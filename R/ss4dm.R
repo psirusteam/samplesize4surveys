@@ -92,8 +92,8 @@ ss4dm = function(N, mu1, mu2, sigma1, sigma2, DEFF=1, conf=0.95, cve=0.05, rme=0
   
   msg <- cat('With the parameters of this function: N =', N, 'mu1 =', mu1, 'mu2 =', mu2, 
              'sigma1 = ', sigma1, 'sigma2 = ', sigma2, 'DEFF = ', DEFF, 'conf =', conf, '.\n
-             The estimated sample size to obatin a maximun coefficient of variation of', 100*cve, '% is n=', ceiling(n.cve), '.
-             The estimated sample size to obatin a maximun margin of error of', 100*rme, '% is n=', ceiling(n.rme), '. \n \n')
+             The estimated sample size to obtain a maximun coefficient of variation of', 100*cve, '% is n=', ceiling(n.cve), '.
+             The estimated sample size to obtain a maximun margin of error of', 100*rme, '% is n=', ceiling(n.rme), '. \n \n')
   
   result <- list(n.cve = ceiling(n.cve), n.rme = ceiling(n.rme))
   result 
