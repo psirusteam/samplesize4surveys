@@ -99,7 +99,7 @@
 
 ss2s4m <- function(N, mu, sigma, conf=0.95, rme=0.03, M, by, rho){
 
-  mseq <- seq(1, round(N/M), by=by)
+  mseq <- seq(1, M, by=by)
   nIseq <- rep(NA, times=length(mseq))
   Deffseq <- rep(NA, times=length(mseq))
   n2seq <- rep(NA, times=length(mseq))

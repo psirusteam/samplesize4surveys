@@ -55,7 +55,7 @@
 
 ss2s4p <- function(N, p, conf=0.95, me=0.03, M, by, rho){
   
-  mseq <- seq(1, round(N/M), by=by)
+  mseq <- seq(1, M, by=by)
   nIseq <- rep(NA, times=length(mseq))
   Deffseq <- rep(NA, times=length(mseq))
   n2seq <- rep(NA, times=length(mseq))
