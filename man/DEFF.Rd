@@ -52,11 +52,10 @@ estima <- data.frame(Income, Employees, Taxes)
 E.piPS(estima,pik)
 DEFF(estima,pik)
 }
-\author{
-Hugo Andres Gutierrez Rojas <hugogutierrez at usantotomas.edu.co>
-}
 \references{
 Gutierrez, H. A. (2009), \emph{Estrategias de muestreo: Diseno de encuestas y estimacion de parametros}. Editorial Universidad Santo Tomas.
 Valliant, R, et. al. (2013), \emph{Practical tools for Design and Weighting Survey Samples}. Springer
 }
-
+\author{
+Hugo Andres Gutierrez Rojas <hugogutierrez at usantotomas.edu.co>
+}

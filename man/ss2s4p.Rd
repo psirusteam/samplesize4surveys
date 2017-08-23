@@ -61,13 +61,12 @@ rho <- ICC(y,cl)$ICC
 M <- length(levels(Zone))
 ss2s4p(N, 0.99, conf=0.9, me=0.03, M=5, by=1, rho=rho)
 }
-\author{
-Hugo Andres Gutierrez Rojas <hugogutierrez at usantotomas.edu.co>
-}
 \references{
 Gutierrez, H. A. (2009), \emph{Estrategias de muestreo: Diseno de encuestas y estimacion de parametros}. Editorial Universidad Santo Tomas
 }
 \seealso{
 \code{\link{ICC}}
 }
-
+\author{
+Hugo Andres Gutierrez Rojas <hugogutierrez at usantotomas.edu.co>
+}

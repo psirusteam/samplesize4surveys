@@ -34,13 +34,12 @@ e4p(N=10000, n=400, P=0.5)
 e4p(N=10000, n=400, P=0.5, plot=TRUE)
 e4p(N=10000, n=400, P=0.01, DEFF=3.45, conf=0.99, plot=TRUE)
 }
-\author{
-Hugo Andres Gutierrez Rojas <hugogutierrez at usantotomas.edu.co>
-}
 \references{
 Gutierrez, H. A. (2009), \emph{Estrategias de muestreo: Diseno de encuestas y estimacion de parametros}. Editorial Universidad Santo Tomas
 }
 \seealso{
 \code{\link{ss4p}}
 }
-
+\author{
+Hugo Andres Gutierrez Rojas <hugogutierrez at usantotomas.edu.co>
+}
