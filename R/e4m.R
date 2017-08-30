@@ -34,7 +34,7 @@ e4m <- function(N, n, mu, sigma, DEFF = 1, conf = 0.95, plot = FALSE) {
   S2 <- sigma^2 * DEFF
   Z <- 1 - ((1 - conf)/2)
   f <- n/N
-  VAR <- (1/n) * (1 - f) * sigma^2
+  VAR <- (1/n) * (1 - f) * S2
   CVE <- 100 * sqrt(VAR)/mu
   ME <- qnorm(Z) * sqrt(VAR)
   
