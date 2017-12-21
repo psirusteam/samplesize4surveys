@@ -11,7 +11,7 @@
 #' Note that the minimun sample size, restricted to the predefined power \eqn{\beta} and confidence \eqn{1-\alpha}, 
 #' is defined by: 
 #' \deqn{n = \frac{S^2}{\frac{D^2}{(z_{1-\alpha} + z_{\beta})^2}+\frac{S^2}{N}}}
-#' where \eqn{S^2=(\sigma_1^2 + \sigma_2^2 + \sigma_3^2 + \sigma_4^2) * DEFF}
+#' where \eqn{S^2=(\sigma_1^2 + \sigma_2^2 + \sigma_3^2 + \sigma_4^2) * (1 - (T * R)) * DEFF}
 #' @author Hugo Andres Gutierrez Rojas <hugogutierrez at usantotomas.edu.co>
 #' @param N The maximun population size between the groups (strata) that we want to compare.
 #' @param mu1 The value of the estimated mean of the variable of interes for the first population.
@@ -56,10 +56,10 @@
 #' N2 <- table(BigLucyT0$ISO)[2]
 #' N <- max(N1,N2)
 #' 
-#' BigLucyT0.yes <- subset(BigLucyT0, ISO == "yes")
-#' BigLucyT0.no <- subset(BigLucyT0, ISO == "no")
-#' BigLucyT1.yes <- subset(BigLucyT1, ISO == "yes")
-#' BigLucyT1.no <- subset(BigLucyT1, ISO == "no")
+#' BigLucyT0.yes <- subset(BigLucyT0, ISO == 'yes')
+#' BigLucyT0.no <- subset(BigLucyT0, ISO == 'no')
+#' BigLucyT1.yes <- subset(BigLucyT1, ISO == 'yes')
+#' BigLucyT1.no <- subset(BigLucyT1, ISO == 'no')
 #' mu1 <- mean(BigLucyT0.yes$Income)
 #' mu2 <- mean(BigLucyT0.no$Income)
 #' mu3 <- mean(BigLucyT1.yes$Income)
@@ -76,32 +76,37 @@
 #' ss4ddmH(N, mu1, mu2, mu3, mu4, sigma1, sigma2, sigma3, sigma4,
 #'  D = 3, conf = 0.99, power = 0.9, DEFF = 3.45, plot=TRUE)
 
-ss4ddmH = function(N, mu1, mu2, mu3, mu4, sigma1, sigma2, sigma3, sigma4, D, DEFF=1, conf=0.95, power=0.8, T = 0, R = 1, plot=FALSE){
+ss4ddmH = function(N, mu1, mu2, mu3, mu4, sigma1, sigma2, sigma3, 
+  sigma4, D, DEFF = 1, conf = 0.95, power = 0.8, T = 0, R = 1, 
+  plot = FALSE) {
   
-  S2 = (sigma1^2 + sigma2^2 + sigma3^2 + sigma4^2) * (1 - (T * R)) * DEFF
+  S2 = (sigma1^2 + sigma2^2 + sigma3^2 + sigma4^2) * 
+    (1 - (T * R)) * DEFF
   Za = conf
-  Zb = power 
-  Z = qnorm(Za)+qnorm(Zb)
+  Zb = power
+  Z = qnorm(Za) + qnorm(Zb)
   n.hyp = S2/((D^2/Z^2) + (S2/N))
   n.hyp = ceiling(n.hyp)
   
-  if(plot == TRUE) {
+  if (plot == TRUE) {
     
-    nseq=seq(100,N,10)
-    Dseq=rep(NA,length(nseq))
+    nseq = seq(100, N, 10)
+    Dseq = rep(NA, length(nseq))
     
-    for(k in 1:length(nseq)){
-      fseq=nseq[k]/N
-      varseq=(1/nseq[k])*(1-fseq)*S2*(qnorm(Za)+qnorm(Zb))^2
-      Dseq[k]=sqrt(varseq)
+    for (k in 1:length(nseq)) {
+      fseq = nseq[k]/N
+      varseq = (1/nseq[k]) * (1 - fseq) * S2 * (qnorm(Za) + 
+        qnorm(Zb))^2
+      Dseq[k] = sqrt(varseq)
     }
     
-    plot(nseq,Dseq, type="l", lty=2, pch=1, col=3,ylab="Null effect",xlab="Sample size")
-    points(n.hyp, D, pch=8,bg = "blue")
-    abline(h=D,lty=3)
-    abline(v=n.hyp,lty=3)
+    plot(nseq, Dseq, type = "l", lty = 2, pch = 1, col = 3, 
+      ylab = "Null effect", xlab = "Sample size")
+    points(n.hyp, D, pch = 8, bg = "blue")
+    abline(h = D, lty = 3)
+    abline(v = n.hyp, lty = 3)
   }
   
   result = n.hyp
-  result 
+  result
 }
