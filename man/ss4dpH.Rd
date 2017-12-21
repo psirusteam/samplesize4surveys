@@ -4,7 +4,8 @@
 \alias{ss4dpH}
 \title{The required sample size for testing a null hyphotesis for a single difference of proportions}
 \usage{
-ss4dpH(N, P1, P2, D, DEFF = 1, conf = 0.95, power = 0.8, plot = FALSE)
+ss4dpH(N, P1, P2, D, DEFF = 1, conf = 0.95, power = 0.8, T = 0, R = 1,
+  plot = FALSE)
 }
 \arguments{
 \item{N}{The maximun population size between the groups (strata) that we want to compare.}
@@ -21,6 +22,10 @@ ss4dpH(N, P1, P2, D, DEFF = 1, conf = 0.95, power = 0.8, plot = FALSE)
 
 \item{power}{The statistical power. By default \code{power = 0.80}.}
 
+\item{T}{The overlap between waves. By default \code{T = 0}.}
+
+\item{R}{The correlation between waves. By default \code{R = 1}.}
+
 \item{plot}{Optionally plot the effect against the sample size.}
 }
 \description{
@@ -31,7 +36,7 @@ We assume that it is of interest to test the following set of hyphotesis:
 \deqn{H_0: P_1 - P_2 = 0 \ \ \ \ vs. \ \ \ \ H_a: P_1 - P_2 = D \neq 0 }
 Note that the minimun sample size, restricted to the predefined power \eqn{\beta} and confidence \eqn{1-\alpha}, is defined by: 
 \deqn{n = \frac{S^2}{\frac{D^2}{(z_{1-\alpha} + z_{\beta})^2}+\frac{S^2}{N}}}
-Where \eqn{S^2=(P_1Q_1+P_2Q_2)DEFF} and \eqn{Q_i=1-P_i} for \eqn{i=1,2}.
+Where \eqn{S^2 = (P1 * Q1 + P2 * Q2) * (1 - (T * R)) * DEFF} and \eqn{Q_i=1-P_i} for \eqn{i=1,2}.
 }
 \examples{
 ss4dpH(N = 100000, P1 = 0.5, P2 = 0.55, D=0.03)

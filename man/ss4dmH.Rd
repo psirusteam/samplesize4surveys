@@ -5,7 +5,7 @@
 \title{The required sample size for testing a null hyphotesis for a single difference of proportions}
 \usage{
 ss4dmH(N, mu1, mu2, sigma1, sigma2, D, DEFF = 1, conf = 0.95, power = 0.8,
-  plot = FALSE)
+  T = 0, R = 1, plot = FALSE)
 }
 \arguments{
 \item{N}{The maximun population size between the groups (strata) that we want to compare.}
@@ -26,6 +26,10 @@ ss4dmH(N, mu1, mu2, sigma1, sigma2, D, DEFF = 1, conf = 0.95, power = 0.8,
 
 \item{power}{The statistical power. By default \code{power = 0.80}.}
 
+\item{T}{The overlap between waves. By default \code{T = 0}.}
+
+\item{R}{The correlation between waves. By default \code{R = 1}.}
+
 \item{plot}{Optionally plot the effect against the sample size.}
 }
 \description{
@@ -37,7 +41,7 @@ We assume that it is of interest to test the following set of hyphotesis:
 Note that the minimun sample size, restricted to the predefined power \eqn{\beta} and confidence \eqn{1-\alpha}, 
 is defined by: 
 \deqn{n = \frac{S^2}{\frac{D^2}{(z_{1-\alpha} + z_{\beta})^2}+\frac{S^2}{N}}}
-where \eqn{S^2=(\sigma_1^2 + \sigma_2^2) * DEFF}
+where \eqn{S^2=(\sigma_1^2 + \sigma_2^2) * (1 - (T * R)) * DEFF}
 }
 \examples{
 ss4dmH(N = 100000, mu1=50, mu2=55, sigma1 = 10, sigma2 = 12, D=3)
@@ -56,8 +60,8 @@ N1 <- table(SPAM)[1]
 N2 <- table(SPAM)[2]
 N <- max(N1,N2)
 
-BigLucy.yes <- subset(BigLucy, SPAM == "yes")
-BigLucy.no <- subset(BigLucy, SPAM == "no")
+BigLucy.yes <- subset(BigLucy, SPAM == 'yes')
+BigLucy.no <- subset(BigLucy, SPAM == 'no')
 mu1 <- mean(BigLucy.yes$Income)
 mu2 <- mean(BigLucy.no$Income)
 sigma1 <- sd(BigLucy.yes$Income)

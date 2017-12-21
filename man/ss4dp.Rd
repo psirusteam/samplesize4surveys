@@ -4,8 +4,8 @@
 \alias{ss4dp}
 \title{The required sample size for estimating a single difference of proportions}
 \usage{
-ss4dp(N, P1, P2, DEFF = 1, conf = 0.95, cve = 0.05, me = 0.03,
-  plot = FALSE)
+ss4dp(N, P1, P2, DEFF = 1, conf = 0.95, cve = 0.05, me = 0.03, T = 0,
+  R = 1, plot = FALSE)
 }
 \arguments{
 \item{N}{The maximun population size between the groups (strata) that we want to compare.}
@@ -22,6 +22,10 @@ ss4dp(N, P1, P2, DEFF = 1, conf = 0.95, cve = 0.05, me = 0.03,
 
 \item{me}{The maximun margin of error that can be allowed for the estimation.}
 
+\item{T}{The overlap between waves. By default \code{T = 0}.}
+
+\item{R}{The correlation between waves. By default \code{R = 1}.}
+
 \item{plot}{Optionally plot the errors (cve and margin of error) against the sample size.}
 }
 \description{
@@ -32,7 +36,7 @@ Note that the minimun sample size to achieve a particular margin of error \eqn{\
 \deqn{n = \frac{n_0}{1+\frac{n_0}{N}}}
 Where \deqn{n_0=\frac{z^2_{1-\frac{\alpha}{2}}S^2}{\varepsilon^2}}
 and
-\deqn{S^2=p(1-p)DEFF}
+\deqn{S^2 = (P1 * Q1 + P2 * Q2) * (1 - (T * R)) * DEFF}
 Also note that the minimun sample size to achieve a particular coefficient of variation \eqn{cve} is defined by:
 \deqn{n = \frac{S^2}{p^2cve^2+\frac{S^2}{N}}}
 }

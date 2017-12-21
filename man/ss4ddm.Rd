@@ -47,7 +47,7 @@ This function returns the minimum sample size required for estimating a double d
 Note that the minimun sample size to achieve a relative margin of error \eqn{\varepsilon} is defined by: 
 \deqn{n = \frac{n_0}{1+\frac{n_0}{N}}}
 Where \deqn{n_0=\frac{z^2_{1-\frac{alpha}{2}}S^2}{\varepsilon^2 \mu^2}} and 
-\eqn{S^2=(\sigma_1^2 + \sigma_2^2 + \sigma_3^2 + \sigma_4^2) * DEFF}
+\eqn{S^2=(\sigma_1^2 + \sigma_2^2 + \sigma_3^2 + \sigma_4^2) * (1 - (T * R)) * DEFF}
 Also note that the minimun sample size to achieve a coefficient of variation \eqn{cve} is defined by:
 \deqn{n = \frac{S^2}{|(\bar{y}_1-\bar{y}_2) - (\bar{y}_3-\bar{y}_4) |^2 cve^2 + \frac{S^2}{N}}}
 }

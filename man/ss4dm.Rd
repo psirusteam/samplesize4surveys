@@ -5,7 +5,7 @@
 \title{The required sample size for estimating a single difference of proportions}
 \usage{
 ss4dm(N, mu1, mu2, sigma1, sigma2, DEFF = 1, conf = 0.95, cve = 0.05,
-  rme = 0.03, plot = FALSE)
+  rme = 0.03, T = 0, R = 1, plot = FALSE)
 }
 \arguments{
 \item{N}{The maximun population size between the groups (strata) that we want to compare.}
@@ -26,6 +26,10 @@ ss4dm(N, mu1, mu2, sigma1, sigma2, DEFF = 1, conf = 0.95, cve = 0.05,
 
 \item{rme}{The maximun relative margin of error that can be allowed for the estimation.}
 
+\item{T}{The overlap between waves. By default \code{T = 0}.}
+
+\item{R}{The correlation between waves. By default \code{R = 1}.}
+
 \item{plot}{Optionally plot the errors (cve and margin of error) against the sample size.}
 }
 \description{
@@ -35,7 +39,7 @@ This function returns the minimum sample size required for estimating a single p
 Note that the minimun sample size to achieve a relative margin of error \eqn{\varepsilon} is defined by: 
 \deqn{n = \frac{n_0}{1+\frac{n_0}{N}}}
 Where \deqn{n_0=\frac{z^2_{1-\frac{alpha}{2}}S^2}{\varepsilon^2 (\mu_1 - \mu_2)^2}} and 
-\eqn{S^2=(\sigma_1^2 + \sigma_2^2) * DEFF}
+\eqn{S^2=(\sigma_1^2 + \sigma_2^2) * (1 - (T * R)) * DEFF}
 Also note that the minimun sample size to achieve a coefficient of variation \eqn{cve} is defined by:
 \deqn{n = \frac{S^2}{|\bar{y}_1-\bar{y}_2|^2 cve^2 + \frac{S^2}{N}}}
 }
@@ -55,8 +59,8 @@ N1 <- table(SPAM)[1]
 N2 <- table(SPAM)[2]
 N <- max(N1,N2)
 
-BigLucy.yes <- subset(BigLucy, SPAM == "yes")
-BigLucy.no <- subset(BigLucy, SPAM == "no")
+BigLucy.yes <- subset(BigLucy, SPAM == 'yes')
+BigLucy.no <- subset(BigLucy, SPAM == 'no')
 mu1 <- mean(BigLucy.yes$Income)
 mu2 <- mean(BigLucy.no$Income)
 sigma1 <- sd(BigLucy.yes$Income)
