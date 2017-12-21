@@ -97,7 +97,7 @@ ss4ddp<-function(N, P1, P2, P3 ,P4, DEFF = 1, conf = 0.95, cve = 0.05, me = 0.03
     abline(v = n.me, lty = 3)
   }
   msg <- cat("With the parameters of this function: N =", N, 
-             "P1 =", P1, "P2 =", P2,"P3 =",P3,"P4 =",P4, "DEFF = ", DEFF, "conf =", conf,"T =",T,"R =",R, 
+             "P1 =", P1, "P2 =", P2,"P3 =",P3,"P4 =",P4, "DEFF = ", DEFF, "conf =", conf, "T =", T, "R =", R, 
              ".\n\n The estimated sample size (for each group at each wave) to obtain a maximun coefficient of variation of", 
              100 * cve, "% is n=", ceiling(n.cve), ".\n The estimated sample size (for each group at each wave) to obtain a maximun margin of error of", 
              100 * me, "% is n=", ceiling(n.me), ". \n \n")
