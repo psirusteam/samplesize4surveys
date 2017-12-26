@@ -44,6 +44,7 @@ Also note that the minimun sample size to achieve a particular coefficient of va
 ss4dp(N=100000, P1=0.5, P2=0.55, cve=0.05, me=0.03)
 ss4dp(N=100000, P1=0.5, P2=0.55, cve=0.05, me=0.03, plot=TRUE)
 ss4dp(N=100000, P1=0.5, P2=0.55, DEFF=3.45, conf=0.99, cve=0.03, me=0.03, plot=TRUE)
+ss4dp(N=100000, P1=0.5, P2=0.55, DEFF=3.45, T=0.5, R=0.5, conf=0.99, cve=0.03, me=0.03, plot=TRUE)
 
 #############################
 # Example with BigLucy data #

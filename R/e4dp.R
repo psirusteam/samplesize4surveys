@@ -17,6 +17,8 @@
 #' @param P1 The value of the first estimated proportion.
 #' @param P2 The value of the second estimated proportion.
 #' @param DEFF The design effect of the sample design. By default \code{DEFF = 1}, which corresponds to a simple random sampling design.
+#' @param T The overlap between waves. By default \code{T = 0}.
+#' @param R The correlation between waves. By default \code{R = 1}.
 #' @param conf The statistical confidence. By default \code{conf = 0.95}.
 #' @param plot Optionally plot the errors (cve and margin of error) against the sample size.
 #' 
@@ -27,12 +29,13 @@
 #' e4dp(N=10000, n=400, P1=0.5, P2=0.6)
 #' e4dp(N=10000, n=400, P1=0.5, P2=0.6, plot=TRUE)
 #' e4dp(N=10000, n=400, P1=0.5, P2=0.6, DEFF=3.45, conf=0.99, plot=TRUE)
+#' e4dp(N=10000, n=400, P1=0.5, P2=0.6, T=0.5, R=0.5, DEFF=3.45, conf=0.99, plot=TRUE)
 
-e4dp <- function(N, n, P1, P2, DEFF = 1, conf = 0.95, plot = FALSE)
+e4dp <- function(N, n, P1, P2, DEFF = 1, T = 0, R = 1, conf = 0.95, plot = FALSE)
 {
   Q1 <- 1 - P1
   Q2 <- 1 - P2
-  S2 <- (P1 * Q1 + P2 * Q2) * DEFF
+  S2 <- (P1 * Q1 + P2 * Q2) * (1 - (T * R)) * DEFF
   Z <- 1 - ((1 - conf)/2)
   f <- n/N
   VAR <- (1/n) * (1 - f) * S2

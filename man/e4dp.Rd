@@ -4,7 +4,7 @@
 \alias{e4dp}
 \title{Statistical errors for the estimation of a difference of proportions}
 \usage{
-e4dp(N, n, P1, P2, DEFF = 1, conf = 0.95, plot = FALSE)
+e4dp(N, n, P1, P2, DEFF = 1, T = 0, R = 1, conf = 0.95, plot = FALSE)
 }
 \arguments{
 \item{N}{The population size.}
@@ -16,6 +16,10 @@ e4dp(N, n, P1, P2, DEFF = 1, conf = 0.95, plot = FALSE)
 \item{P2}{The value of the second estimated proportion.}
 
 \item{DEFF}{The design effect of the sample design. By default \code{DEFF = 1}, which corresponds to a simple random sampling design.}
+
+\item{T}{The overlap between waves. By default \code{T = 0}.}
+
+\item{R}{The correlation between waves. By default \code{R = 1}.}
 
 \item{conf}{The statistical confidence. By default \code{conf = 0.95}.}
 
@@ -35,6 +39,7 @@ Also, note that the magin of error is defined as: \deqn{\varepsilon = z_{1-\frac
 e4dp(N=10000, n=400, P1=0.5, P2=0.6)
 e4dp(N=10000, n=400, P1=0.5, P2=0.6, plot=TRUE)
 e4dp(N=10000, n=400, P1=0.5, P2=0.6, DEFF=3.45, conf=0.99, plot=TRUE)
+e4dp(N=10000, n=400, P1=0.5, P2=0.6, T=0.5, R=0.5, DEFF=3.45, conf=0.99, plot=TRUE)
 }
 \references{
 Gutierrez, H. A. (2009), \emph{Estrategias de muestreo: Diseno de encuestas y estimacion de parametros}. Editorial Universidad Santo Tomas
