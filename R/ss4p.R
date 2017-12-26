@@ -45,45 +45,43 @@
 #' ss4p(N, P, DEFF=3.45, conf=0.99, cve=0.03, me=0.03, plot=TRUE)
 
 
-ss4p = function(N, P, DEFF=1, conf=0.95, cve=0.05, me=0.03, plot=FALSE){
+ss4p = function(N, P, DEFF = 1, conf = 0.95, cve = 0.05, me = 0.03, 
+  plot = FALSE) {
   
-  S2= P * (1 - P) * DEFF
-  Z = 1-((1-conf)/2)
-  n.cve <- S2/(P^2*cve^2+(S2/N))
-  n0.me <- (qnorm(Z)^2/me^2)*S2
-  n.me <- n0.me/(1+(n0.me/N))
- 
-  if(plot == TRUE) {
-    
-    nseq=seq(100,N,10)
-    cveseq=rep(NA,length(nseq))
-    meseq=rep(NA,length(nseq))
-    
-      for(k in 1:length(nseq)){
-      fseq=nseq[k]/N
-      varseq=(1/nseq[k])*(1-fseq)*S2
-      cveseq[k]=100*sqrt(varseq)/P
-      meseq[k]=100*qnorm(Z)*sqrt(varseq)
-      }
-    
-  par(mfrow=c(1,2))
-  plot(nseq,cveseq, type="l", lty=2, pch=1, col=3,ylab="Coefficient of variation %",xlab="Sample size")
-  points(n.cve, 100*cve, pch=8,bg = "blue")
-  abline(h=100*cve,lty=3)
-  abline(v=n.cve,lty=3)
+  S2 = P * (1 - P) * DEFF
+  Z = 1 - ((1 - conf)/2)
+  n.cve <- S2/(P^2 * cve^2 + (S2/N))
+  n0.me <- (qnorm(Z)^2/me^2) * S2
+  n.me <- n0.me/(1 + (n0.me/N))
   
-  plot(nseq,meseq, type="l", lty=2, pch=1, col=3,ylab="Margin of error %",xlab="Sample size")
-  points(n.me,100*me, pch=8,bg = "red")
-  abline(h=100*me,lty=3)
-  abline(v=n.me,lty=3)
+  if (plot == TRUE) {
+    
+    nseq = seq(100, N, 10)
+    cveseq = rep(NA, length(nseq))
+    meseq = rep(NA, length(nseq))
+    
+    for (k in 1:length(nseq)) {
+      fseq = nseq[k]/N
+      varseq = (1/nseq[k]) * (1 - fseq) * S2
+      cveseq[k] = 100 * sqrt(varseq)/P
+      meseq[k] = 100 * qnorm(Z) * sqrt(varseq)
+    }
+    
+    par(mfrow = c(1, 2))
+    plot(nseq, cveseq, type = "l", lty = 2, pch = 1, col = 3, 
+      ylab = "Coefficient of variation %", xlab = "Sample size")
+    points(n.cve, 100 * cve, pch = 8, bg = "blue")
+    abline(h = 100 * cve, lty = 3)
+    abline(v = n.cve, lty = 3)
+    
+    plot(nseq, meseq, type = "l", lty = 2, pch = 1, col = 3, 
+      ylab = "Margin of error %", xlab = "Sample size")
+    points(n.me, 100 * me, pch = 8, bg = "red")
+    abline(h = 100 * me, lty = 3)
+    abline(v = n.me, lty = 3)
   }
   
-  msg <- cat('With the parameters of this function: N =', N, 'P =', P, 'DEFF = ',
-             DEFF, 'conf =', conf, '.\n
-             The estimated sample size to obtain a maximun coefficient of variation of', 100*cve, '% is n=', ceiling(n.cve), '.
-             The estimated sample size to obtain a maximun margin of error of', 100*me, '% is n=', ceiling(n.me), '. \n \n')
-  
   result <- list(n.cve = ceiling(n.cve), n.me = ceiling(n.me))
-  result 
+  result
 }
 

@@ -30,41 +30,39 @@
 
 e4p <- function(N, n, P, DEFF = 1, conf = 0.95, plot = FALSE) {
   
-  S2 <- P * (1 - P)
+  S2 <- P * (1 - P) * DEFF
   Z <- 1 - ((1 - conf)/2)
   f <- n/N
-  VAR <- DEFF * (1/n) * (1 - f) * S2
+  VAR <- (1/n) * (1 - f) * S2
   CVE <- 100 * sqrt(VAR)/P
   ME <- 100 * qnorm(Z) * sqrt(VAR)
   
   if (plot == TRUE) {
+    pseq <- seq(0, 1, 0.005)
+    cveseq <- NULL
+    rmeseq <- NULL
+    S2seq  <- NULL
+    varseq <- NULL
     
-    nseq <- seq(1, N, 10)
-    cveseq <- rep(NA, length(nseq))
-    meseq <- rep(NA, length(nseq))
-    
-    for (k in 1:length(nseq)) {
-      fseq <- nseq[k]/N
-      varseq <- (1/nseq[k]) * (1 - fseq) * S2
-      cveseq[k] <- 100 * sqrt(varseq)/P
-      meseq[k] <- 100 * qnorm(Z) * sqrt(varseq)
+    for (k in 1:length(pseq)) {
+      S2seq[k] <- pseq[k] * (1 - pseq[k]) * DEFF
+      varseq[k] <- (1/n) * (1 - f) * S2seq[k]
+      cveseq[k] <- 100 * sqrt(varseq[k])/pseq[k]
+      rmeseq[k] <- 100 * qnorm(Z) * sqrt(varseq[k])
     }
     
     par(mfrow = c(1, 2))
-    plot(nseq, cveseq, type = "l", lty = 1, pch = 1, col = 3, ylab = "Coefficient of variation", xlab = "Sample Size")
-    points(n, CVE, pch = 8, bg = "blue")
+    plot(pseq, cveseq, type = "l", lty = 1, pch = 1, col = 3, 
+      ylab = "Coefficient of variation %", xlab = "Estimated proportion")
+    points(P, CVE, pch = 8, bg = "blue")
     abline(h = CVE, lty = 3)
-    abline(v = n, lty = 3)
-    
-    plot(nseq, meseq, type = "l", lty = 1, pch = 1, col = 3, ylab = "Margin of error", xlab = "Sample Size")
-    points(n, ME, pch = 8, bg = "blue")
+    abline(v = P, lty = 3)
+    plot(pseq, rmeseq, type = "l", lty = 1, pch = 1, col = 3, 
+      ylab = "Margin of error %", xlab = "Estimated proportion")
+    points(P, ME, pch = 8, bg = "blue")
     abline(h = ME, lty = 3)
-    abline(v = n, lty = 3)
+    abline(v = P, lty = 3)
   }
-  
-  msg <- cat("With the parameters of this function: N =", N, "n = ", n, "P =", P, "DEFF = ", DEFF, "conf =", conf, ". \nThe estimated coefficient of variation is ", 
-             CVE, ". \nThe margin of error is", ME, ". \n \n")
-  
   result <- list(cve = CVE, Margin_of_error = ME)
   result
-} 
+}
