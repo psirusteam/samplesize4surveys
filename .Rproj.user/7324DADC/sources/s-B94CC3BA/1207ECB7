@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1514314405221.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "1207ECB7",
+    "lastKnownWriteTime" : 1514316305,
+    "last_content_update" : 1514316305627,
+    "path" : "~/Desktop/Dropbox/github/samplesize4surveys/R/ss4dp.R",
+    "project_path" : "R/ss4dp.R",
+    "properties" : {
+        "cursorPosition" : "23,0",
+        "scrollLine" : "0"
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
