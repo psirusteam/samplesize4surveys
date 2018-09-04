@@ -49,9 +49,9 @@ attach(Lucy)
 N <- nrow(Lucy)
 P <- prop.table(table(SPAM))[1]
 # The minimum sample size for simple random sampling
-ss4p(N, P, DEFF=1, cve=0.03, plot=TRUE)
+ss4pLN(N, P, DEFF=1, cve=0.03, plot=TRUE)
 # The minimum sample size for a complex sampling design
-ss4p(N, P, DEFF=3.45, cve=0.03, plot=TRUE)
+ss4pLN(N, P, DEFF=3.45, cve=0.03, plot=TRUE)
 }
 \references{
 Gutierrez, H. A. (2009), \emph{Estrategias de muestreo: Diseno de encuestas y estimacion de parametros}. Editorial Universidad Santo Tomas

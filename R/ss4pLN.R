@@ -44,9 +44,9 @@
 #' N <- nrow(Lucy)
 #' P <- prop.table(table(SPAM))[1]
 #' # The minimum sample size for simple random sampling
-#' ss4p(N, P, DEFF=1, cve=0.03, plot=TRUE)
+#' ss4pLN(N, P, DEFF=1, cve=0.03, plot=TRUE)
 #' # The minimum sample size for a complex sampling design
-#' ss4p(N, P, DEFF=3.45, cve=0.03, plot=TRUE)
+#' ss4pLN(N, P, DEFF=3.45, cve=0.03, plot=TRUE)
 
 
 ss4pLN <- function(N, P, DEFF = 1, cve = 0.05, plot = FALSE) {
@@ -98,7 +98,7 @@ ss4pLN <- function(N, P, DEFF = 1, cve = 0.05, plot = FALSE) {
     
     plot(pseq, ncveseq,
          type = "l", lty = 2, pch = 1, col = 3,
-         ylab = "Required sample size", xlab = "Estimated proportion"
+         ylab = "Required sample size", xlab = "Estimated proportion",
     )
     points(P, n.cve, pch = 8, bg = "blue")
     abline(h = n.cve, lty = 3)
