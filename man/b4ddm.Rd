@@ -4,8 +4,8 @@
 \alias{b4ddm}
 \title{Statistical power for a hyphotesis testing on a double difference of means.}
 \usage{
-b4ddm(N, n, mu1, mu2, mu3, mu4, sigma1, sigma2, sigma3, sigma4, D, DEFF = 1,
-  conf = 0.95, T = 0, R = 1, plot = FALSE)
+b4ddm(N, n, mu1, mu2, mu3, mu4, sigma1, sigma2, sigma3, sigma4, D,
+  DEFF = 1, conf = 0.95, T = 0, R = 1, plot = FALSE)
 }
 \arguments{
 \item{N}{The population size.}

@@ -4,7 +4,8 @@
 \alias{ss4p}
 \title{The required sample size for estimating a single proportion}
 \usage{
-ss4p(N, P, DEFF = 1, conf = 0.95, cve = 0.05, me = 0.03, plot = FALSE)
+ss4p(N, P, DEFF = 1, conf = 0.95, cve = 0.05, me = 0.03,
+  plot = FALSE)
 }
 \arguments{
 \item{N}{The population size.}

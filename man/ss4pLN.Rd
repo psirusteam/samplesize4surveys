@@ -2,7 +2,7 @@
 % Please edit documentation in R/ss4pLN.R
 \name{ss4pLN}
 \alias{ss4pLN}
-\title{The required sample size for estimating a single proportion based on the transformation of the estimated proportion}
+\title{The required sample size for estimating a single proportion based on a logaritmic transformation of the estimated proportion}
 \usage{
 ss4pLN(N, P, DEFF = 1, cve = 0.05, plot = FALSE)
 }

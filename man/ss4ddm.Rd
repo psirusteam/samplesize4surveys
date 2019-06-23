@@ -5,7 +5,8 @@
 \title{The required sample size for estimating a double difference of means}
 \usage{
 ss4ddm(N, mu1, mu2, mu3, mu4, sigma1, sigma2, sigma3, sigma4, DEFF = 1,
-  conf = 0.95, cve = 0.05, rme = 0.03, T = 0, R = 1, plot = FALSE)
+  conf = 0.95, cve = 0.05, rme = 0.03, T = 0, R = 1,
+  plot = FALSE)
 }
 \arguments{
 \item{N}{The maximun population size between the groups (strata) that we want to compare.}

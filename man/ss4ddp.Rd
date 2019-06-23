@@ -4,8 +4,8 @@
 \alias{ss4ddp}
 \title{The required sample size for estimating a double difference of proportions}
 \usage{
-ss4ddp(N, P1, P2, P3, P4, DEFF = 1, conf = 0.95, cve = 0.05, me = 0.03,
-  T = 0, R = 1, plot = FALSE)
+ss4ddp(N, P1, P2, P3, P4, DEFF = 1, conf = 0.95, cve = 0.05,
+  me = 0.03, T = 0, R = 1, plot = FALSE)
 }
 \arguments{
 \item{N}{The population size.}

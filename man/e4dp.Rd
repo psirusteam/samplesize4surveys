@@ -4,7 +4,8 @@
 \alias{e4dp}
 \title{Statistical errors for the estimation of a difference of proportions}
 \usage{
-e4dp(N, n, P1, P2, DEFF = 1, T = 0, R = 1, conf = 0.95, plot = FALSE)
+e4dp(N, n, P1, P2, DEFF = 1, T = 0, R = 1, conf = 0.95,
+  plot = FALSE)
 }
 \arguments{
 \item{N}{The population size.}

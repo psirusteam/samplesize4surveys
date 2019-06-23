@@ -4,8 +4,9 @@
 \alias{ss4ddmH}
 \title{The required sample size for testing a null hyphotesis for a double difference of proportions}
 \usage{
-ss4ddmH(N, mu1, mu2, mu3, mu4, sigma1, sigma2, sigma3, sigma4, D, DEFF = 1,
-  conf = 0.95, power = 0.8, T = 0, R = 1, plot = FALSE)
+ss4ddmH(N, mu1, mu2, mu3, mu4, sigma1, sigma2, sigma3, sigma4, D,
+  DEFF = 1, conf = 0.95, power = 0.8, T = 0, R = 1,
+  plot = FALSE)
 }
 \arguments{
 \item{N}{The maximun population size between the groups (strata) that we want to compare.}

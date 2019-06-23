@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1561258117296.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "85394A8A",
+    "lastKnownWriteTime" : 1561258128,
+    "last_content_update" : 1561258128179,
+    "path" : "~/Desktop/Dropbox/github/samplesize4surveys/R/ss4pLN.R",
+    "project_path" : "R/ss4pLN.R",
+    "properties" : {
+        "cursorPosition" : "4,84",
+        "scrollLine" : "1"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
