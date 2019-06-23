@@ -2,7 +2,7 @@
 #' @export
 #'
 #' @title
-#' The required sample size for estimating a single proportion based on the transformation of the estimated proportion
+#' The required sample size for estimating a single proportion based on a logaritmic transformation of the estimated proportion
 #' @description
 #' This function returns the minimum sample size required for estimating a single proportion subjecto to predefined errors.
 #' @details
