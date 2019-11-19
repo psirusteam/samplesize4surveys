@@ -11,7 +11,7 @@
 #' Note that the minimun sample size, restricted to the predefined power \eqn{\beta} and confidence \eqn{1-\alpha}, is defined by: 
 #' \deqn{n = \frac{S^2}{\frac{D^2}{(z_{1-\alpha} + z_{\beta})^2}+\frac{S^2}{N}}}
 #' Where \eqn{S^2 = (P1 * Q1 + P2 * Q2 + P3 * Q3 + P4 * Q4) * (1 - (T * R)) * DEFF} and \eqn{Q_i=1-P_i} for \eqn{i=1,2, 3, 4}.
-#' @author Hugo Andres Gutierrez Rojas <hugogutierrez at usantotomas.edu.co>
+#' @author Hugo Andres Gutierrez Rojas <hugogutierrez at gmail.com>
 #' @param N The maximun population size between the groups (strata) that we want to compare.
 #' @param P1 The value of the first estimated proportion.
 #' @param P2 The value of the second estimated proportion.

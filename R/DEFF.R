@@ -19,7 +19,7 @@
 #' and \eqn{\hat{a}} is the estimation of the intercept in the following model
 #' \deqn{y_k = a + b * p_k + e_k}
 #' with \eqn{p_k = \pi_k / n} is an standardized sampling weight. Finnaly, \eqn{R^2} is the R-squared of this model. 
-#' @author Hugo Andres Gutierrez Rojas <hugogutierrez at usantotomas.edu.co>
+#' @author Hugo Andres Gutierrez Rojas <hugogutierrez at gmail.com>
 #' @param y Vector, matrix or data frame containing the recollected information of the variables of interest for every unit in the selected sample.
 #' @param pik Vector of inclusion probabilities for each unit in the selected sample.
 #' 

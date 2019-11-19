@@ -14,7 +14,7 @@
 #' Also note that the minimun sample size to achieve a particular coefficient of variation \eqn{cve} is defined by:
 #' \deqn{n = \frac{S^2}{(ddp)^2cve^2+\frac{S^2}{N}}} 
 #' And \eqn{ddp} is the expected estimate of the double difference of proportions.   
-#' @author Hugo Andres Gutierrez Rojas <hugogutierrez at usantotomas.edu.co>
+#' @author Hugo Andres Gutierrez Rojas <hugogutierrez at gmail.com>
 #' @param N The population size.
 #' @param P1 The value of the first estimated proportion at first wave.
 #' @param P2 The value of the second estimated proportion at first wave.

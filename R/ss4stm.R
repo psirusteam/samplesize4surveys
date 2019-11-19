@@ -14,7 +14,7 @@
 #' Where \deqn{S^2_h = DEFF_h \sigma^2_h}
 #' Then, the required sample size in each stratum is given by:
 #' \deqn{n_h = n \frac{w_h S_h}{\sum_{h=1}^H w_h S_h}}
-#' @author Hugo Andres Gutierrez Rojas <hugogutierrez at usantotomas.edu.co>
+#' @author Hugo Andres Gutierrez Rojas <hugogutierrez at gmail.com>
 #' @param Nh Vector. The population size for each stratum.
 #' @param muh Vector. The means of the variable of interest in each stratum.
 #' @param sigmah Vector. The standard deviation of the variable of interest in each stratum.

@@ -12,7 +12,7 @@
 #' Note that the minimun sample size, restricted to the predefined power \eqn{\beta} and confidence \eqn{1-\alpha}, is defined by: 
 #' \deqn{n = \frac{S2^2}{\frac{D^2}{(z_{1-\alpha} + z_{\beta})^2}\frac{(N-1)^3}{N^2(N*K+2N+2)}+\frac{S2^2}{N}}}
 #'  
-#' @author Hugo Andres Gutierrez Rojas <hugogutierrez at usantotomas.edu.co>
+#' @author Hugo Andres Gutierrez Rojas <hugogutierrez at gmail.com>
 #' @param N The population size.
 #' @param S2 The value of the estimated variance
 #' @param S20 The value to test for the single variance

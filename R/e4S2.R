@@ -12,7 +12,7 @@
 #' We note that the coefficient of variation is defined as: \deqn{cve = \frac{\sqrt{Var(\hat{S^2})}}{\hat{S^2}}} 
 #' Also, note that the magin of error is defined as: \deqn{\varepsilon = z_{1-\frac{\alpha}{2}}\sqrt{Var(\hat{S^2})}}
 #' 
-#' @author Hugo Andres Gutierrez Rojas <hugogutierrez at usantotomas.edu.co>
+#' @author Hugo Andres Gutierrez Rojas <hugogutierrez at gmail.com>
 #' @param N The population size.
 #' @param n The sample size.
 #' @param K The excess kurtosis of the variable in the population.

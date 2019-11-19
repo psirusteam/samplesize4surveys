@@ -11,7 +11,7 @@
 #' The intraclass correlation coefficient is defined as: 
 #' \deqn{\rho = 1- \frac{m}{m-1} \frac{WSS}{TSS}} 
 #' Where \eqn{m} is the average sample sie of units selected inside each sampled cluster. 
-#' @author Hugo Andres Gutierrez Rojas <hugogutierrez at usantotomas.edu.co>
+#' @author Hugo Andres Gutierrez Rojas <hugogutierrez at gmail.com>
 #' @param y The variable of interest. 
 #' @param cl The variable indicating the membership of each element to a specific cluster. 
 #' 

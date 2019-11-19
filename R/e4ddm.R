@@ -11,7 +11,7 @@
 #' We note that the coefficent of variation is defined as: \deqn{cve = \frac{\sqrt{Var((\bar{y}_1 - \bar{y}_2)-(\bar{y}_1 - \bar{y}_2))}}{(\bar{y}_1 - \bar{y}_2)-(\bar{y}_3 - \bar{y}_4)}} 
 #' Also, note that the magin of error is defined as: \deqn{\varepsilon = z_{1-\frac{\alpha}{2}}\sqrt{Var((\bar{y}_1 - \bar{y}_2)-(\bar{y}_3 - \bar{y}_4))}}
 #'  
-#' @author Hugo Andres Gutierrez Rojas <hugogutierrez at usantotomas.edu.co>
+#' @author Hugo Andres Gutierrez Rojas <hugogutierrez at gmail.com>
 #' @param N The population size.
 #' @param n The sample size.
 #' @param mu1 The value of the estimated mean of the variable of interes for the first population.

@@ -13,7 +13,7 @@
 #' Also note that the minimun sample size to achieve a particular coefficient of variation \eqn{cve} is defined by:
 #' \deqn{n = \frac{N^2(N*K+2N+2)*DEFF}{cve^2*(N-1)^3+N(N*K+2N+2)*DEFF}}
 #'
-#' @author Hugo Andres Gutierrez Rojas <hugogutierrez at usantotomas.edu.co>
+#' @author Hugo Andres Gutierrez Rojas <hugogutierrez at gmail.com>
 #' @param N The population size.
 #' @param K The population excess kurtosis of the variable in the population.
 #' @param DEFF The design effect of the sample design. By default \code{DEFF = 1}, which corresponds to a simple random sampling design.

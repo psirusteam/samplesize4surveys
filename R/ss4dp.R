@@ -14,7 +14,7 @@
 #' Also note that the minimun sample size to achieve a particular coefficient of variation \eqn{cve} is defined by:
 #' \deqn{n = \frac{S^2}{p^2cve^2+\frac{S^2}{N}}} 
 #'   
-#' @author Hugo Andres Gutierrez Rojas <hugogutierrez at usantotomas.edu.co>
+#' @author Hugo Andres Gutierrez Rojas <hugogutierrez at gmail.com>
 #' @param N The maximun population size between the groups (strata) that we want to compare.
 #' @param P1 The value of the first estimated proportion.
 #' @param P2 The value of the second estimated proportion.

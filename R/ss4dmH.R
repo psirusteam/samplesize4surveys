@@ -12,7 +12,7 @@
 #' is defined by: 
 #' \deqn{n = \frac{S^2}{\frac{D^2}{(z_{1-\alpha} + z_{\beta})^2}+\frac{S^2}{N}}}
 #' where \eqn{S^2=(\sigma_1^2 + \sigma_2^2) * (1 - (T * R)) * DEFF}
-#' @author Hugo Andres Gutierrez Rojas <hugogutierrez at usantotomas.edu.co>
+#' @author Hugo Andres Gutierrez Rojas <hugogutierrez at gmail.com>
 #' @param N The maximun population size between the groups (strata) that we want to compare.
 #' @param mu1 The value of the estimated mean of the variable of interes for the first population.
 #' @param mu2 The value of the estimated mean of the variable of interes for the second population.

@@ -14,7 +14,7 @@
 #' Also note that the minimun sample size to achieve a particular coefficient of variation \eqn{cve} is defined by:
 #' \deqn{n = \frac{S^2}{P^2cve^2+\frac{S^2}{N}}} 
 #'   
-#' @author Hugo Andres Gutierrez Rojas <hugogutierrez at usantotomas.edu.co>
+#' @author Hugo Andres Gutierrez Rojas <hugogutierrez at gmail.com>
 #' @param N The population size.
 #' @param P The value of the estimated proportion.
 #' @param DEFF The design effect of the sample design. By default \code{DEFF = 1}, which corresponds to a simple random sampling design.
