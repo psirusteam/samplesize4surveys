@@ -4,8 +4,23 @@
 \alias{e4ddm}
 \title{Statistical errors for the estimation of a double difference of means}
 \usage{
-e4ddm(N, n, mu1, mu2, mu3, mu4, sigma1, sigma2, sigma3, sigma4, DEFF = 1,
-  conf = 0.95, T = 0, R = 1, plot = FALSE)
+e4ddm(
+  N,
+  n,
+  mu1,
+  mu2,
+  mu3,
+  mu4,
+  sigma1,
+  sigma2,
+  sigma3,
+  sigma4,
+  DEFF = 1,
+  conf = 0.95,
+  T = 0,
+  R = 1,
+  plot = FALSE
+)
 }
 \arguments{
 \item{N}{The population size.}

@@ -4,8 +4,20 @@
 \alias{ss4dm}
 \title{The required sample size for estimating a single difference of proportions}
 \usage{
-ss4dm(N, mu1, mu2, sigma1, sigma2, DEFF = 1, conf = 0.95, cve = 0.05,
-  rme = 0.03, T = 0, R = 1, plot = FALSE)
+ss4dm(
+  N,
+  mu1,
+  mu2,
+  sigma1,
+  sigma2,
+  DEFF = 1,
+  conf = 0.95,
+  cve = 0.05,
+  rme = 0.03,
+  T = 0,
+  R = 1,
+  plot = FALSE
+)
 }
 \arguments{
 \item{N}{The maximun population size between the groups (strata) that we want to compare.}

@@ -4,8 +4,7 @@
 \alias{ss4S2H}
 \title{The required sample size for testing a null hyphotesis for a single variance}
 \usage{
-ss4S2H(N, S2, S20, K = 0, DEFF = 1, conf = 0.95, power = 0.8,
-  plot = FALSE)
+ss4S2H(N, S2, S20, K = 0, DEFF = 1, conf = 0.95, power = 0.8, plot = FALSE)
 }
 \arguments{
 \item{N}{The population size.}

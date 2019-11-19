@@ -21,9 +21,9 @@
 #' \deqn{ n_{2S} =  n_{SI}*DEFF} 
 #' @author Hugo Andres Gutierrez Rojas <hugogutierrez at usantotomas.edu.co>
 #' @param N The population size.
-#' @param p The value of the estimated proportion.
+#' @param P The value of the estimated proportion.
 #' @param conf The statistical confidence. By default conf = 0.95. By default \code{conf = 0.95}.
-#' @param me The maximun margin of error that can be allowed for the estimation.
+#' @param delta The maximun margin of error that can be allowed for the estimation.
 #' @param M Number of clusters in the population.
 #' @param by number: increment of the sequence in the grid.
 #' @param rho The Intraclass Correlation Coefficient.
@@ -34,9 +34,9 @@
 #' 
 #' @examples
 #' 
-#' ss2s4p(N=100000, p=0.5, me=0.03, M=50, by=5, rho=0.01)
-#' ss2s4p(N=100000, p=0.5, me=0.05, M=50, by=5, rho=0.1)
-#' ss2s4p(N=100000, p=0.5, me=0.03, M=500, by=100, rho=0.2) 
+#' ss2s4p(N=100000, P=0.5, delta=0.03, M=50, by=5, rho=0.01)
+#' ss2s4p(N=100000, P=0.5, delta=0.05, M=50, by=5, rho=0.1)
+#' ss2s4p(N=100000, P=0.5, delta=0.03, M=500, by=100, rho=0.2) 
 #' 
 #' ############################
 #' # Example 2 with Lucy data #
@@ -45,15 +45,15 @@
 #' data(Lucy)
 #' attach(Lucy)
 #' N <- nrow(Lucy)
-#' p <- prop.table(table(SPAM))[1]
+#' P <- prop.table(table(SPAM))[1]
 #' y <- as.double(SPAM)
 #' cl <- Zone
 #' 
 #' rho <- ICC(y,cl)$ICC
 #' M <- length(levels(Zone))
-#' ss2s4p(N, 0.99, conf=0.9, me=0.03, M=5, by=1, rho=rho)
+#' ss2s4p(N, 0.99, conf=0.9, delta = 0.03, M=5, by=1, rho=rho)
 
-ss2s4p <- function(N, p, conf=0.95, me=0.03, M, by, rho){
+ss2s4p <- function(N, P, conf=0.95, delta = 0.03, M, by, rho){
   
   mseq <- seq(1, M, by=by)
   nIseq <- rep(NA, times=length(mseq))
@@ -62,7 +62,7 @@ ss2s4p <- function(N, p, conf=0.95, me=0.03, M, by, rho){
   
   for(i in 1: length(mseq)){
     Deffseq[i] = 1 + (mseq[i] - 1) * rho
-    n2seq[i] = ss4p(N, p, DEFF=Deffseq[i], conf=conf, me=me)$n.me
+    n2seq[i] = ss4p(N, P, DEFF=Deffseq[i], conf = conf, error = "me", delta = delta)
     nIseq[i] <- ceiling(n2seq[i]/mseq[i])
   }
   

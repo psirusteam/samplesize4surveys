@@ -4,16 +4,16 @@
 \alias{ss2s4p}
 \title{Sample Sizes in Two-Stage sampling Designs for Estimating Signle Proportions}
 \usage{
-ss2s4p(N, p, conf = 0.95, me = 0.03, M, by, rho)
+ss2s4p(N, P, conf = 0.95, delta = 0.03, M, by, rho)
 }
 \arguments{
 \item{N}{The population size.}
 
-\item{p}{The value of the estimated proportion.}
+\item{P}{The value of the estimated proportion.}
 
 \item{conf}{The statistical confidence. By default conf = 0.95. By default \code{conf = 0.95}.}
 
-\item{me}{The maximun margin of error that can be allowed for the estimation.}
+\item{delta}{The maximun margin of error that can be allowed for the estimation.}
 
 \item{M}{Number of clusters in the population.}
 
@@ -42,9 +42,9 @@ simple random sample (SI) design is given by
 }
 \examples{
 
-ss2s4p(N=100000, p=0.5, me=0.03, M=50, by=5, rho=0.01)
-ss2s4p(N=100000, p=0.5, me=0.05, M=50, by=5, rho=0.1)
-ss2s4p(N=100000, p=0.5, me=0.03, M=500, by=100, rho=0.2) 
+ss2s4p(N=100000, P=0.5, delta=0.03, M=50, by=5, rho=0.01)
+ss2s4p(N=100000, P=0.5, delta=0.05, M=50, by=5, rho=0.1)
+ss2s4p(N=100000, P=0.5, delta=0.03, M=500, by=100, rho=0.2) 
 
 ############################
 # Example 2 with Lucy data #
@@ -53,13 +53,13 @@ ss2s4p(N=100000, p=0.5, me=0.03, M=500, by=100, rho=0.2)
 data(Lucy)
 attach(Lucy)
 N <- nrow(Lucy)
-p <- prop.table(table(SPAM))[1]
+P <- prop.table(table(SPAM))[1]
 y <- as.double(SPAM)
 cl <- Zone
 
 rho <- ICC(y,cl)$ICC
 M <- length(levels(Zone))
-ss2s4p(N, 0.99, conf=0.9, me=0.03, M=5, by=1, rho=rho)
+ss2s4p(N, 0.99, conf=0.9, delta = 0.03, M=5, by=1, rho=rho)
 }
 \references{
 Gutierrez, H. A. (2009), \emph{Estrategias de muestreo: Diseno de encuestas y estimacion de parametros}. Editorial Universidad Santo Tomas

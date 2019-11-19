@@ -1,8 +1,8 @@
 {
-    "path" : "~/Desktop/Dropbox/github/samplesize4surveys1",
+    "path" : "~/Desktop/Dropbox/github/Software/samplesize4surveys",
     "sortOrder" : [
         {
-            "ascending" : true,
+            "ascending" : false,
             "columnIndex" : 2
         }
     ]

@@ -4,7 +4,7 @@
 \alias{ss2s4m}
 \title{Sample Sizes in Two-Stage sampling Designs for Estimating Signle Means}
 \usage{
-ss2s4m(N, mu, sigma, conf = 0.95, rme = 0.03, M, by, rho)
+ss2s4m(N, mu, sigma, conf = 0.95, delta = 0.03, M, by, rho)
 }
 \arguments{
 \item{N}{The population size.}
@@ -15,7 +15,7 @@ ss2s4m(N, mu, sigma, conf = 0.95, rme = 0.03, M, by, rho)
 
 \item{conf}{The statistical confidence. By default conf = 0.95. By default \code{conf = 0.95}.}
 
-\item{rme}{The maximun relative margin of error that can be allowed for the estimation.}
+\item{delta}{The maximun relative margin of error that can be allowed for the estimation.}
 
 \item{M}{Number of clusters in the population.}
 
@@ -44,10 +44,10 @@ simple random sample (SI) design is given by
 }
 \examples{
 
-ss2s4m(N=100000, mu=10, sigma=2, conf=0.95, rme=0.03, M=50, by=5, rho=0.01)
-ss2s4m(N=100000, mu=10, sigma=2, conf=0.95, rme=0.03, M=50, by=5, rho=0.1)
-ss2s4m(N=100000, mu=10, sigma=2, conf=0.95, rme=0.03, M=50, by=5, rho=0.2)
-ss2s4m(N=100000, mu=10, sigma=2, conf=0.95, rme=0.05, M=50, by=5, rho=0.3)
+ss2s4m(N=100000, mu=10, sigma=2, conf=0.95, delta=0.03, M=50, by=5, rho=0.01)
+ss2s4m(N=100000, mu=10, sigma=2, conf=0.95, delta=0.03, M=50, by=5, rho=0.1)
+ss2s4m(N=100000, mu=10, sigma=2, conf=0.95, delta=0.03, M=50, by=5, rho=0.2)
+ss2s4m(N=100000, mu=10, sigma=2, conf=0.95, delta=0.05, M=50, by=5, rho=0.3)
 
 ##########################################
 # Almost same mean in each cluster       #
@@ -75,7 +75,7 @@ cl <- rep(1:NI, length.out=N)
 rho = ICC(y,cl)$ICC
 rho
 
-ss2s4m(N, mu=mean(y), sigma=sd(y), conf=0.95, rme=0.03, M=N/NI, by=10, rho)
+ss2s4m(N, mu=mean(y), sigma=sd(y), conf=0.95, delta=0.03, M=N/NI, by=10, rho)
 
 
 ##########################################
@@ -104,7 +104,7 @@ cl <- kronecker(c(1:NI),rep(1,N/NI))
 rho = ICC(y,cl)$ICC
 rho
 
-ss2s4m(N, mu=mean(y), sigma=sd(y), conf=0.95, rme=0.03, M=N/NI, by=10, rho)
+ss2s4m(N, mu=mean(y), sigma=sd(y), conf=0.95, delta=0.03, M=N/NI, by=10, rho)
 }
 \references{
 Gutierrez, H. A. (2009), \emph{Estrategias de muestreo: Diseno de encuestas y estimacion de parametros}. Editorial Universidad Santo Tomas

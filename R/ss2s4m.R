@@ -24,7 +24,7 @@
 #' @param mu The value of the estimated mean of a variable of interest.
 #' @param sigma The value of the estimated standard deviation of a variable of interest.
 #' @param conf The statistical confidence. By default conf = 0.95. By default \code{conf = 0.95}.
-#' @param rme The maximun relative margin of error that can be allowed for the estimation.
+#' @param delta The maximun relative margin of error that can be allowed for the estimation.
 #' @param M Number of clusters in the population.
 #' @param by number: increment of the sequence in the grid.
 #' @param rho The Intraclass Correlation Coefficient.
@@ -35,10 +35,10 @@
 #' 
 #' @examples
 #' 
-#' ss2s4m(N=100000, mu=10, sigma=2, conf=0.95, rme=0.03, M=50, by=5, rho=0.01)
-#' ss2s4m(N=100000, mu=10, sigma=2, conf=0.95, rme=0.03, M=50, by=5, rho=0.1)
-#' ss2s4m(N=100000, mu=10, sigma=2, conf=0.95, rme=0.03, M=50, by=5, rho=0.2)
-#' ss2s4m(N=100000, mu=10, sigma=2, conf=0.95, rme=0.05, M=50, by=5, rho=0.3)
+#' ss2s4m(N=100000, mu=10, sigma=2, conf=0.95, delta=0.03, M=50, by=5, rho=0.01)
+#' ss2s4m(N=100000, mu=10, sigma=2, conf=0.95, delta=0.03, M=50, by=5, rho=0.1)
+#' ss2s4m(N=100000, mu=10, sigma=2, conf=0.95, delta=0.03, M=50, by=5, rho=0.2)
+#' ss2s4m(N=100000, mu=10, sigma=2, conf=0.95, delta=0.05, M=50, by=5, rho=0.3)
 #' 
 #' ##########################################
 #' # Almost same mean in each cluster       #
@@ -66,7 +66,7 @@
 #' rho = ICC(y,cl)$ICC
 #' rho
 #' 
-#' ss2s4m(N, mu=mean(y), sigma=sd(y), conf=0.95, rme=0.03, M=N/NI, by=10, rho)
+#' ss2s4m(N, mu=mean(y), sigma=sd(y), conf=0.95, delta=0.03, M=N/NI, by=10, rho)
 #' 
 #' 
 #' ##########################################
@@ -95,18 +95,20 @@
 #' rho = ICC(y,cl)$ICC
 #' rho
 #' 
-#' ss2s4m(N, mu=mean(y), sigma=sd(y), conf=0.95, rme=0.03, M=N/NI, by=10, rho)
+#' ss2s4m(N, mu=mean(y), sigma=sd(y), conf=0.95, delta=0.03, M=N/NI, by=10, rho)
 
-ss2s4m <- function(N, mu, sigma, conf=0.95, rme=0.03, M, by, rho){
+ss2s4m <- function(N, mu, sigma, conf = 0.95, delta = 0.03, M, by, rho){
 
-  mseq <- seq(1, M, by=by)
+  mseq <- seq(1, M, by = by)
   nIseq <- rep(NA, times=length(mseq))
   Deffseq <- rep(NA, times=length(mseq))
   n2seq <- rep(NA, times=length(mseq))
   
   for(i in 1: length(mseq)){
     Deffseq[i] = 1 + (mseq[i] - 1) * rho
-    n2seq[i] = ss4m(N, mu=mu, sigma=sigma, DEFF=Deffseq[i], conf=conf, rme=rme)$n.rme
+    n2seq[i] = ss4m(N, mu = mu, sigma = sigma, 
+                    DEFF = Deffseq[i], conf = conf, 
+                    error = "rme", delta = delta)
     nIseq[i] <- ceiling(n2seq[i]/mseq[i])
   }
 

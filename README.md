@@ -21,7 +21,7 @@ install_github("psirusteam/samplesize4surveys")
 ```
 
 ## Author
-This package is maintained by Andrés Gutiérrez. Current version includes contributions from Natalia Arteaga.
+This package is maintained by Andrés Gutiérrez. 
 
 ### Support or Contact
 Having trouble with `samplesize4surveys`? Check out the [documentation](http://cran.r-project.org/web/packages/samplesize4surveys/samplesize4surveys.pdf) or [contact support](https://github.com/psirusteam). Comments, amends, and critics are very welcome. This is the [CRAN site](http://cran.r-project.org/web/packages/samplesize4surveys/samplesize4surveys.pdf) of the last stable version of the package.

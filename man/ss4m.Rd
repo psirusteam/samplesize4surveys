@@ -4,8 +4,16 @@
 \alias{ss4m}
 \title{The required sample size for estimating a single mean}
 \usage{
-ss4m(N, mu, sigma, DEFF = 1, conf = 0.95, cve = 0.05, rme = 0.03,
-  plot = FALSE)
+ss4m(
+  N,
+  mu,
+  sigma,
+  DEFF = 1,
+  conf = 0.95,
+  error = "cve",
+  delta = 0.03,
+  plot = FALSE
+)
 }
 \arguments{
 \item{N}{The population size.}
@@ -18,9 +26,9 @@ ss4m(N, mu, sigma, DEFF = 1, conf = 0.95, cve = 0.05, rme = 0.03,
 
 \item{conf}{The statistical confidence. By default conf = 0.95. By default \code{conf = 0.95}.}
 
-\item{cve}{The maximun coeficient of variation that can be allowed for the estimation.}
+\item{error}{The type of error you want to minimize.}
 
-\item{rme}{The maximun relative margin of error that can be allowed for the estimation.}
+\item{delta}{The magnitude of the error you want to minimize.}
 
 \item{plot}{Optionally plot the errors (cve and margin of error) against the sample size.}
 }
@@ -37,9 +45,9 @@ Also note that the minimun sample size to achieve a coefficient of variation \eq
 \deqn{n = \frac{S^2}{\bar{y}_U^2 cve^2 + \frac{S^2}{N}}}
 }
 \examples{
-ss4m(N=10000, mu=10, sigma=2, cve=0.05, rme=0.05)
-ss4m(N=10000, mu=10, sigma=2, cve=0.05, rme=0.03, plot=TRUE)
-ss4m(N=10000, mu=10, sigma=2, DEFF=3.45, cve=0.05, rme=0.03, plot=TRUE)
+ss4m(N=10000, mu=10, sigma=2, DEFF = 2, error = "cve", delta = 0.03, plot=TRUE)
+ss4m(N=10000, mu=10, sigma=2, DEFF = 2, error = "me", delta = 1, plot=TRUE)
+ss4m(N=10000, mu=10, sigma=2, DEFF = 2, error = "rme", delta = 0.03, plot=TRUE)
 
 ##########################
 # Example with Lucy data #
@@ -51,9 +59,11 @@ N <- nrow(Lucy)
 mu <- mean(Income)
 sigma <- sd(Income)
 # The minimum sample size for simple random sampling
-ss4m(N, mu, sigma, DEFF=1, conf=0.95, cve=0.03, rme=0.03, plot=TRUE)
+ss4m(N, mu, sigma, DEFF=1, conf=0.95, error = "rme", delta = 0.03, plot=TRUE)
 # The minimum sample size for a complex sampling design
-ss4m(N, mu, sigma, DEFF=3.45, conf=0.95, cve=0.03, rme=0.03, plot=TRUE)
+ss4m(N, mu, sigma, DEFF=1, conf=0.95, error = "me", delta = 5, plot=TRUE)
+# The minimum sample size for a complex sampling design
+ss4m(N, mu, sigma, DEFF=3.45, conf=0.95, error = "rme", delta = 0.03, plot=TRUE)
 }
 \references{
 Gutierrez, H. A. (2009), \emph{Estrategias de muestreo: Diseno de encuestas y estimacion de parametros}. Editorial Universidad Santo Tomas

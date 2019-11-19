@@ -4,8 +4,7 @@
 \alias{b4S2}
 \title{Statistical power for a hyphotesis testing on a single variance}
 \usage{
-b4S2(N, n, S2, S20, K = 0, DEFF = 1, conf = 0.95, power = 0.8,
-  plot = FALSE)
+b4S2(N, n, S2, S20, K = 0, DEFF = 1, conf = 0.95, power = 0.8, plot = FALSE)
 }
 \arguments{
 \item{N}{The population size.}
