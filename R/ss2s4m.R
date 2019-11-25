@@ -26,7 +26,7 @@
 #' @param conf The statistical confidence. By default conf = 0.95. By default \code{conf = 0.95}.
 #' @param delta The maximun relative margin of error that can be allowed for the estimation.
 #' @param M Number of clusters in the population.
-#' @param by number: increment of the sequence in the grid.
+#' @param to (integer) maximum number of final units to be selected per cluster. By default \code{to = 20}.
 #' @param rho The Intraclass Correlation Coefficient.
 #' 
 #' @references 
@@ -35,10 +35,10 @@
 #' 
 #' @examples
 #' 
-#' ss2s4m(N=100000, mu=10, sigma=2, conf=0.95, delta=0.03, M=50, by=5, rho=0.01)
-#' ss2s4m(N=100000, mu=10, sigma=2, conf=0.95, delta=0.03, M=50, by=5, rho=0.1)
-#' ss2s4m(N=100000, mu=10, sigma=2, conf=0.95, delta=0.03, M=50, by=5, rho=0.2)
-#' ss2s4m(N=100000, mu=10, sigma=2, conf=0.95, delta=0.05, M=50, by=5, rho=0.3)
+#' ss2s4m(N=100000, mu=10, sigma=2, conf=0.95, delta=0.03, M=50, rho=0.01)
+#' ss2s4m(N=100000, mu=10, sigma=2, conf=0.95, delta=0.03, M=50, to=40, rho=0.1)
+#' ss2s4m(N=100000, mu=10, sigma=2, conf=0.95, delta=0.03, M=50, to=40, rho=0.2)
+#' ss2s4m(N=100000, mu=10, sigma=2, conf=0.95, delta=0.05, M=50, to=40, rho=0.3)
 #' 
 #' ##########################################
 #' # Almost same mean in each cluster       #
@@ -54,19 +54,19 @@
 #' # Population size
 #' N <- 1000000
 #' # Number of clusters in the population
-#' NI <- 1000
+#' M <- 1000
 #' # Number of elements per cluster
-#' N/NI
+#' N/M
 #' 
 #' # The variable of interest
 #' y <- c(1:N)
 #' # The clustering factor
-#' cl <- rep(1:NI, length.out=N)
+#' cl <- rep(1:M, length.out=N)
 #' 
 #' rho = ICC(y,cl)$ICC
 #' rho
 #' 
-#' ss2s4m(N, mu=mean(y), sigma=sd(y), conf=0.95, delta=0.03, M=N/NI, by=10, rho)
+#' ss2s4m(N, mu=mean(y), sigma=sd(y), conf=0.95, delta=0.03, M=M, rho=rho)
 #' 
 #' 
 #' ##########################################
@@ -83,37 +83,69 @@
 #' # Population size
 #' N <- 1000000
 #' # Number of clusters in the population
-#' NI <- 1000
+#' M <- 1000
 #' # Number of elements per cluster
-#' N/NI
+#' N/M
 #' 
 #' # The variable of interest
 #' y <- c(1:N)
 #' # The clustering factor
-#' cl <- kronecker(c(1:NI),rep(1,N/NI))
+#' cl <- kronecker(c(1:M),rep(1,N/M))
 #' 
 #' rho = ICC(y,cl)$ICC
 #' rho
 #' 
-#' ss2s4m(N, mu=mean(y), sigma=sd(y), conf=0.95, delta=0.03, M=N/NI, by=10, rho)
+#' ss2s4m(N, mu=mean(y), sigma=sd(y), conf=0.95, delta=0.03, M=M, rho=rho)
+#' 
+#' ##########################
+#' # Example with Lucy data #
+#' ##########################
+#' 
+#' data(BigLucy)
+#' attach(BigLucy)
+#' N <- nrow(BigLucy)
+#' P <- prop.table(table(SPAM))[1]
+#' y <- Income
+#' cl <- Segments
+#' 
+#' rho <- ICC(y,cl)$ICC
+#' M <- length(levels(Segments))
+#' 
+#' ss2s4m(N, mu=mean(y), sigma=sd(y), conf=0.95, delta=0.03, M=M, rho=rho)
+#' 
+#' ##########################
+#' # Example with Lucy data #
+#' ##########################
+#' 
+#' data(BigLucy)
+#' attach(BigLucy)
+#' N <- nrow(BigLucy)
+#' P <- prop.table(table(SPAM))[1]
+#' y <- Years
+#' cl <- Segments
+#' 
+#' rho <- ICC(y,cl)$ICC
+#' M <- length(levels(Segments))
+#' 
+#' ss2s4m(N, mu=mean(y), sigma=sd(y), conf=0.95, delta=0.03, M=M, rho=rho)
 
-ss2s4m <- function(N, mu, sigma, conf = 0.95, delta = 0.03, M, by, rho){
-
-  mseq <- seq(1, M, by = by)
-  nIseq <- rep(NA, times=length(mseq))
-  Deffseq <- rep(NA, times=length(mseq))
-  n2seq <- rep(NA, times=length(mseq))
+ss2s4m <- function(N, mu, sigma, conf = 0.95, delta = 0.03, M, to = 20, rho) {
   
-  for(i in 1: length(mseq)){
+  mseq <- seq(from = 1, to = to)
+  nIseq <- Deffseq <- n2seq <- rep(NA, times = length(mseq))
+  
+  for (i in 1:length(mseq)) {
     Deffseq[i] = 1 + (mseq[i] - 1) * rho
-    n2seq[i] = ss4m(N, mu = mu, sigma = sigma, 
-                    DEFF = Deffseq[i], conf = conf, 
-                    error = "rme", delta = delta)
-    nIseq[i] <- ceiling(n2seq[i]/mseq[i])
+    n2seq[i] = ss4m(N, mu = mu, sigma = sigma, DEFF = Deffseq[i], 
+      conf = conf, error = "rme", delta = delta)
+    nIseq[i] <- ifelse(n2seq[i]/mseq[i] > M,
+                       M, ceiling(n2seq[i]/mseq[i])) 
+                      
   }
-
-  result <- data.frame("Deff"=Deffseq, "nI"=nIseq, "m"=mseq, "n2s"=n2seq)
-  result.adj <- result[(result$nI <= M),]
+  
+  result <- data.frame(Deff = Deffseq, nI = nIseq, m = mseq, 
+    n2s = n2seq)
+  result.adj <- result[(result$nI <= M), ]
   result.adj
 }
 
