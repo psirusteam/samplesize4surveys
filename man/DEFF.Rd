@@ -57,5 +57,5 @@ Gutierrez, H. A. (2009), \emph{Estrategias de muestreo: Diseno de encuestas y es
 Valliant, R, et. al. (2013), \emph{Practical tools for Design and Weighting Survey Samples}. Springer
 }
 \author{
-Hugo Andres Gutierrez Rojas <hugogutierrez at usantotomas.edu.co>
+Hugo Andres Gutierrez Rojas <hugogutierrez at gmail.com>
 }

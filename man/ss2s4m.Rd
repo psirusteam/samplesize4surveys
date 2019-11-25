@@ -4,7 +4,7 @@
 \alias{ss2s4m}
 \title{Sample Sizes in Two-Stage sampling Designs for Estimating Signle Means}
 \usage{
-ss2s4m(N, mu, sigma, conf = 0.95, delta = 0.03, M, by, rho)
+ss2s4m(N, mu, sigma, conf = 0.95, delta = 0.03, M, to = 20, rho)
 }
 \arguments{
 \item{N}{The population size.}
@@ -19,7 +19,7 @@ ss2s4m(N, mu, sigma, conf = 0.95, delta = 0.03, M, by, rho)
 
 \item{M}{Number of clusters in the population.}
 
-\item{by}{number: increment of the sequence in the grid.}
+\item{to}{(integer) maximum number of final units to be selected per cluster. By default \code{to = 20}.}
 
 \item{rho}{The Intraclass Correlation Coefficient.}
 }
@@ -44,10 +44,10 @@ simple random sample (SI) design is given by
 }
 \examples{
 
-ss2s4m(N=100000, mu=10, sigma=2, conf=0.95, delta=0.03, M=50, by=5, rho=0.01)
-ss2s4m(N=100000, mu=10, sigma=2, conf=0.95, delta=0.03, M=50, by=5, rho=0.1)
-ss2s4m(N=100000, mu=10, sigma=2, conf=0.95, delta=0.03, M=50, by=5, rho=0.2)
-ss2s4m(N=100000, mu=10, sigma=2, conf=0.95, delta=0.05, M=50, by=5, rho=0.3)
+ss2s4m(N=100000, mu=10, sigma=2, conf=0.95, delta=0.03, M=50, rho=0.01)
+ss2s4m(N=100000, mu=10, sigma=2, conf=0.95, delta=0.03, M=50, to=40, rho=0.1)
+ss2s4m(N=100000, mu=10, sigma=2, conf=0.95, delta=0.03, M=50, to=40, rho=0.2)
+ss2s4m(N=100000, mu=10, sigma=2, conf=0.95, delta=0.05, M=50, to=40, rho=0.3)
 
 ##########################################
 # Almost same mean in each cluster       #
@@ -63,19 +63,19 @@ ss2s4m(N=100000, mu=10, sigma=2, conf=0.95, delta=0.05, M=50, by=5, rho=0.3)
 # Population size
 N <- 1000000
 # Number of clusters in the population
-NI <- 1000
+M <- 1000
 # Number of elements per cluster
-N/NI
+N/M
 
 # The variable of interest
 y <- c(1:N)
 # The clustering factor
-cl <- rep(1:NI, length.out=N)
+cl <- rep(1:M, length.out=N)
 
 rho = ICC(y,cl)$ICC
 rho
 
-ss2s4m(N, mu=mean(y), sigma=sd(y), conf=0.95, delta=0.03, M=N/NI, by=10, rho)
+ss2s4m(N, mu=mean(y), sigma=sd(y), conf=0.95, delta=0.03, M=M, rho=rho)
 
 
 ##########################################
@@ -92,19 +92,51 @@ ss2s4m(N, mu=mean(y), sigma=sd(y), conf=0.95, delta=0.03, M=N/NI, by=10, rho)
 # Population size
 N <- 1000000
 # Number of clusters in the population
-NI <- 1000
+M <- 1000
 # Number of elements per cluster
-N/NI
+N/M
 
 # The variable of interest
 y <- c(1:N)
 # The clustering factor
-cl <- kronecker(c(1:NI),rep(1,N/NI))
+cl <- kronecker(c(1:M),rep(1,N/M))
 
 rho = ICC(y,cl)$ICC
 rho
 
-ss2s4m(N, mu=mean(y), sigma=sd(y), conf=0.95, delta=0.03, M=N/NI, by=10, rho)
+ss2s4m(N, mu=mean(y), sigma=sd(y), conf=0.95, delta=0.03, M=M, rho=rho)
+
+##########################
+# Example with Lucy data #
+##########################
+
+data(BigLucy)
+attach(BigLucy)
+N <- nrow(BigLucy)
+P <- prop.table(table(SPAM))[1]
+y <- Income
+cl <- Segments
+
+rho <- ICC(y,cl)$ICC
+M <- length(levels(Segments))
+
+ss2s4m(N, mu=mean(y), sigma=sd(y), conf=0.95, delta=0.03, M=M, rho=rho)
+
+##########################
+# Example with Lucy data #
+##########################
+
+data(BigLucy)
+attach(BigLucy)
+N <- nrow(BigLucy)
+P <- prop.table(table(SPAM))[1]
+y <- Years
+cl <- Segments
+
+rho <- ICC(y,cl)$ICC
+M <- length(levels(Segments))
+
+ss2s4m(N, mu=mean(y), sigma=sd(y), conf=0.95, delta=0.03, M=M, rho=rho)
 }
 \references{
 Gutierrez, H. A. (2009), \emph{Estrategias de muestreo: Diseno de encuestas y estimacion de parametros}. Editorial Universidad Santo Tomas
@@ -113,5 +145,5 @@ Gutierrez, H. A. (2009), \emph{Estrategias de muestreo: Diseno de encuestas y es
 \code{\link{ICC}}
 }
 \author{
-Hugo Andres Gutierrez Rojas <hugogutierrez at usantotomas.edu.co>
+Hugo Andres Gutierrez Rojas <hugogutierrez at gmail.com>
 }
