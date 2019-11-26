@@ -61,7 +61,7 @@ ss2s4p <- function(N, P, conf = 0.95, delta = 0.03, M, to = 20, rho) {
   for (i in 1:length(mseq)) {
     Deffseq[i] = 1 + (mseq[i] - 1) * rho
     n2seq[i] = ss4p(N, P, DEFF = Deffseq[i], conf = conf, 
-      error = "me", delta = delta)
+      error = "rme", delta = delta)
     nIseq[i] <- ifelse(n2seq[i]/mseq[i] > M,
                        M, ceiling(n2seq[i]/mseq[i]))
   }
