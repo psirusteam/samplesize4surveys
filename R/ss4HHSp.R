@@ -35,27 +35,41 @@
 #' @seealso \code{\link{ICC}}
 #' 
 #' @examples
-#' N <- 50000000
-#' M <- 30000
-#' r <- 1
-#' b <- 3.5
-#' m <- 10
-#' rho <- 0.034
-#' P <- 0.04
+#' 
+#' ss4HHSp(N = 50000000, M = 3000, r = 1, b = 3.5, 
+#' rho = 0.034, P = 0.05, delta = 0.05, conf = 0.95,
+#' m = c(5:15))
+#' 
+#' ##################################
+#' # Example with BigCity data      #
+#' # Sample size for the estimation #
+#' # of the unemployment rate       #
+#' ##################################
+#' 
+#' library(TeachingSampling)
+#' data(BigCity)
+#' 
+#' BigCity1 <- BigCity[!is.na(BigCity$Employment), ]
+#' summary(BigCity1$Employment)
+#' BigCity1$Unemp <- Domains(BigCity1$Employment)[, 1]
+#' BigCity1$Active <- Domains(BigCity1$Employment)[, 1] +
+#' Domains(BigCity1$Employment)[, 3]
+#' 
+#' N <- nrow(BigCity)
+#' M <- length(unique(BigCity$PSU))
+#' r <- sum(BigCity1$Active)/N
+#' b <- N/length(unique(BigCity$HHID))
+#' rho <- ICC(BigCity1$Unemp, BigCity1$PSU)$ICC
+#' P <- sum(BigCity1$Unemp)/sum(BigCity1$Active)
 #' delta <- 0.05
-#' conf <- 0.9
-#' 
-#' m <- c(1:10)
-#' 
-#' ss4HHSp(N = N, M = M, r = r, b = b, 
-#' rho = rho, P = P, delta = delta, conf = conf,
-#' m = m)
-#' 
-
+#' conf <- 0.95
+#' m <- c(5:15)
+#' ss4HHSp(N, M, r, b, rho, P, delta, conf, m)
 
 ss4HHSp <- function(N, M, r, b, rho, P, delta, conf, m){
   
-  bar.n <- Deff <- n <- Mi <- M <- rep(NA, times = length(m))
+  bar.n <- Deff <- n <- Mi <- M <- 
+    rep(NA, times = length(m))
   
   for (k in 1:length(m)) {
     bar.n[k] <- m[k] * r * b
