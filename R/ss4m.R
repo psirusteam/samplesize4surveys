@@ -82,7 +82,7 @@ ss4m = function(N, mu, sigma, DEFF=1, conf=0.95, error = "cve", delta = 0.03,
       meseq = 100 * qnorm(Z) * sqrt(varseq)
       
       plot(nseq, meseq, type = "l", lty = 2, pch = 1, col = 3, 
-           ylab = "Margin of error %", xlab = "Sample size")
+           ylab = "Margin of error", xlab = "Sample size")
       points(n, 100 * delta, pch = 8, col = "red")
       abline(h = 100 * delta, lty = 3)
       abline(v = n, lty = 3)
