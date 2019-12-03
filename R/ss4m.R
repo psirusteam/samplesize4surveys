@@ -71,7 +71,7 @@ ss4m = function(N, mu, sigma, DEFF=1, conf=0.95, error = "cve", delta = 0.03,
       abline(v = n, lty = 3)
     }
   }
-  if (error == "me"){
+  if (error == "me") {
     n0 <- (qnorm(Z)^2/delta^2) * S2
     n <- n0/(1 + (n0/N))
     
