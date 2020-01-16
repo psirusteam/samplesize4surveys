@@ -92,5 +92,5 @@ Gutierrez, H. A. (2009), \emph{Estrategias de muestreo: Diseno de encuestas y es
 \code{\link{ss4dp}}
 }
 \author{
-Hugo Andres Gutierrez Rojas <hugogutierrez at gmail.com>
+Hugo Andres Gutierrez Rojas <hagutierrezro at gmail.com>
 }
