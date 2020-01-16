@@ -9,7 +9,7 @@
 #' The power of the test.
 #' @details
 #' We note that the power is defined as: \deqn{1-\Phi(Z_{1-\alpha} - \frac{(D-P)}{\sqrt{\frac{DEFF}{n}(1-\frac{n}{N})(P (1-P))}})}
-#' @author Hugo Andres Gutierrez Rojas <hugogutierrez at gmail.com>
+#' @author Hugo Andres Gutierrez Rojas <hagutierrezro at gmail.com>
 #' @param N The population size.
 #' @param n The sample size.
 #' @param P The value of the first estimated proportion.

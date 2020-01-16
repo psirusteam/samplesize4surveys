@@ -14,7 +14,7 @@
 #' Also note that the minimun sample size to achieve a coefficient of variation \eqn{cve} is defined by:
 #' \deqn{n = \frac{S^2}{\bar{y}_U^2 cve^2 + \frac{S^2}{N}}} 
 #'   
-#' @author Hugo Andres Gutierrez Rojas <hugogutierrez at gmail.com>
+#' @author Hugo Andres Gutierrez Rojas <hagutierrezro at gmail.com>
 #' @param N The population size.
 #' @param mu The value of the estimated mean of a variable of interest.
 #' @param sigma The value of the estimated standard deviation of a variable of interest.

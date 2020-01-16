@@ -10,7 +10,7 @@
 #' @details
 #' We note that the power is defined as: \deqn{1-\Phi(Z_{1-\alpha} - \frac{(D - \mu)}{\sqrt{\frac{1}{n}(1-\frac{n}{N})S^2}})}
 #' where \deqn{S^2 = DEFF \sigma^2}
-#' @author Hugo Andres Gutierrez Rojas <hugogutierrez at gmail.com>
+#' @author Hugo Andres Gutierrez Rojas <hagutierrezro at gmail.com>
 #' @param N The population size.
 #' @param n The sample size.
 #' @param mu The value of the estimated mean of the variable of interest.

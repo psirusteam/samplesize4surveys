@@ -11,7 +11,7 @@
 #' We note that the margin of error is defined as: \deqn{cve = \frac{\sqrt{Var((\hat{P}_1 - \hat{P}_2) - (\hat{P}_3 - \hat{P}_4) ) }}{(\hat{P}_1 - \hat{P}_2) - (\hat{P}_3 - \hat{P}_4)}} 
 #' Also, note that the magin of error is defined as: \deqn{\varepsilon = z_{1-\frac{\alpha}{2}}\sqrt{Var((\hat{P}_1 - \hat{P}_2) - (\hat{P}_3 - \hat{P}_4) )}}
 #' 
-#' @author Hugo Andres Gutierrez Rojas <hugogutierrez at gmail.com>
+#' @author Hugo Andres Gutierrez Rojas <hagutierrezro at gmail.com>
 #' @param N The population size.
 #' @param n The sample size.
 #' @param P1 The value of the first estimated proportion.

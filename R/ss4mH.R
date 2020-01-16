@@ -12,7 +12,7 @@
 #' \deqn{n = \frac{S^2}{\frac{D^2}{(z_{1-\alpha} + z_{\beta})^2}+\frac{S^2}{N}}}
 #' Where \eqn{S^2=\sigma^2 * DEFF} and \eqn{\sigma^2} is the population variance of the varible of interest.
 #'  
-#' @author Hugo Andres Gutierrez Rojas <hugogutierrez at gmail.com>
+#' @author Hugo Andres Gutierrez Rojas <hagutierrezro at gmail.com>
 #' @param N The population size.
 #' @param mu The population mean of the variable of interest.
 #' @param sigma The population variance of the variable of interest.

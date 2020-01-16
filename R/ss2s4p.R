@@ -19,7 +19,7 @@
 #' The relationship of the full sample size of the two stage design (2S) with the 
 #' simple random sample (SI) design is given by
 #' \deqn{ n_{2S} =  n_{SI}*DEFF} 
-#' @author Hugo Andres Gutierrez Rojas <hugogutierrez at gmail.com>
+#' @author Hugo Andres Gutierrez Rojas <hagutierrezro at gmail.com>
 #' @param N The population size.
 #' @param P The value of the estimated proportion.
 #' @param conf The statistical confidence. By default \code{conf = 0.95}.

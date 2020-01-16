@@ -19,7 +19,7 @@
 #' The relationship of the full sample size of the two stage design (2S) with the 
 #' simple random sample (SI) design is given by
 #' \deqn{ n_{2S} =  n_{SI}*DEFF} 
-#' @author Hugo Andres Gutierrez Rojas <hugogutierrez at gmail.com>
+#' @author Hugo Andres Gutierrez Rojas <hagutierrezro at gmail.com>
 #' @param N The population size.
 #' @param M Number of clusters in the population.
 #' @param mu The value of the estimated mean of a variable of interest.

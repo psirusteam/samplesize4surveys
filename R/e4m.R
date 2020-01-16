@@ -11,7 +11,7 @@
 #' We note that the coefficent of variation is defined as: \deqn{cve = \frac{\sqrt{Var(\bar{y}_S)}}{\bar{y}_S}} 
 #' Also, note that the magin of error is defined as: \deqn{\varepsilon = z_{1-\frac{\alpha}{2}}\sqrt{Var(\bar{y}_S)}}
 #' 
-#' @author Hugo Andres Gutierrez Rojas <hugogutierrez at gmail.com>
+#' @author Hugo Andres Gutierrez Rojas <hagutierrezro at gmail.com>
 #' @param N The population size.
 #' @param n The sample size.
 #' @param mu The value of the estimated mean of the variable of interest.

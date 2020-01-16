@@ -13,7 +13,7 @@
 #' Also note that the minimun sample size to achieve a coefficient of variation \eqn{cve} is defined by:
 #' \deqn{n = \frac{S^2}{|(\bar{y}_1-\bar{y}_2) - (\bar{y}_3-\bar{y}_4) |^2 cve^2 + \frac{S^2}{N}}} 
 #'   
-#' @author Hugo Andres Gutierrez Rojas <hugogutierrez at gmail.com>
+#' @author Hugo Andres Gutierrez Rojas <hagutierrezro at gmail.com>
 #' @param N The maximun population size between the groups (strata) that we want to compare.
 #' @param mu1 The value of the estimated mean of the variable of interes for the first population.
 #' @param mu2 The value of the estimated mean of the variable of interes for the second population.
