@@ -1,4 +1,7 @@
 #' @import TeachingSampling
+#' @importFrom magrittr %>%
+#' @importFrom dplyr group_by
+#' @importFrom dplyr summarise
 #' @export
 #' 
 #' @title
